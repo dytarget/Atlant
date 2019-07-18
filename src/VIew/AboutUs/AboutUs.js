@@ -40,8 +40,6 @@ export class AboutUs extends Component {
     render() {
         
         return (
-            this.state.isLoading ? (<div>Hello{console.log("Hello")
-            }</div>) : (
                 <div>
                 <ReactPageScroller ref={c => this.reactPageScroller = c} pageOnChange={(info)=>{console.log(info);this.setState({which:info})}}>
                         <div className="bottom-layer" >
@@ -164,7 +162,6 @@ export class AboutUs extends Component {
                 </ReactPageScroller>
                    
                 </div>
-            )
         )
     }
 }
