@@ -1,0 +1,176 @@
+.sectionMain{
+    display: flex;
+}
+.logotip{
+    width: 220px;
+}
+.leftMain{
+    background-image: url('./left-back.jpg');
+    background-size: cover;
+    background-position: right;
+    width: 50%;
+    height: 90vh;
+}
+.rightMain{
+    width: 50%;
+    height: 90vh;
+    background: rgba(128,128,128, 0.25);
+    padding: 0px 25px;
+}
+.rightMain h4{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #6b3354;
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.rightMain i{
+    color: #6b3354;
+    font-size: 1.75rem;
+    width: 50px;
+    text-align: center;
+}
+
+.rightMain a{
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+.rightMain span{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.headerMain img{
+    padding:30px;
+}
+
+.headerMain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(128,128,128, 0.15);
+}
+.sep{
+    width: 100%;
+    height: 100px;
+    background: rgba(128,128,128, 0.15);
+}
+.lists{
+    padding: 20px 10px;
+    border-bottom: 2px solid rgba(128,128,128, 0.15);
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    transition: 0.4s ease;  
+    font-size: 0.95rem;
+}
+
+.lists:hover{
+    background-image: linear-gradient(180deg,#6b3354 0,#3c4673 100%);
+    color: white;
+    transition: 0.4s ease;  
+}
+.lists:hover i{
+    color: white;
+    transition: 0.4s ease;  
+}
+
+.title{
+    border-bottom: 2px solid rgba(128,128,128, 0.15);
+}
+
+@media screen and (max-width:900px){
+    section{
+        flex-direction: column;
+    }
+    .leftMain{
+        width: 100%;
+    }
+    .rightMain{
+        width: 100%;
+    }
+    footer{
+        flex-direction: column;
+    }
+}
+
+
+footer span{
+    margin-left: 25px;
+}
+
+footer{
+    background: rgb(39, 39, 46);
+    color: white;
+    font-size: 1.1rem;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #6b3354;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+
+.cont-logo{
+    will-change: transform, opacity;
+    animation: container-anim 0.7s linear;
+}
+.beforeRotate{
+    will-change: transform,width,height,opacity;
+    animation: come-anim 0.7s linear;
+}
+
+
+.divok{
+    position: absolute;
+    width: 100%;
+    will-change: width,height,opacity,transform,padding,margin;
+}
+
+
+@keyframes come-anim{
+    0%{
+        transform: rotate(90deg);
+        opacity: 0;
+    } 
+    100%{
+        transform: rotate(90deg);
+        opacity: 1;
+    }
+}
+
+
+@keyframes container-anim{
+    0%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: rotate(0deg);
+      }
+}
+
+
+@keyframes logotip_first{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+      }
+}
+
+@keyframes logotip{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+      }
+}

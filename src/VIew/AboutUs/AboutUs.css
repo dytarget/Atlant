@@ -1,0 +1,147 @@
+.bottom-layer{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.text{
+    position: absolute;
+    z-index: 2000;
+    left: 20%;
+    font-size: 5rem;
+    max-width: 60%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    margin-top: 10%;
+    opacity: 1;
+}
+
+.btn{
+    width: 15%;
+    padding:20px 0;
+    float: right;
+    margin-top: calc(100vh - (45px + 1.5rem));
+    opacity: 1;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border: 0px;
+    cursor: pointer;
+}
+
+
+.numbers{
+    position: absolute;
+    left: 10%;
+    margin-top:10%;
+    z-index: 2001;
+    cursor: pointer;
+}
+
+.numbers div{
+    opacity: 0.5;
+}
+.numbers div::before {
+    content: "-";
+    width: 3rem;
+    height: 2px;
+    margin-right: 1rem;
+    background-color: currentColor;
+}
+
+.numbers div:hover{
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+.animated{
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+}
+
+.alert-enter {
+  opacity: 1;
+  transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 2400ms, transform 2400ms;
+}
+.alert-exit {
+  opacity: 0;
+}
+.alert-exit-active {
+  opacity: 1;
+  transform: scale(0.9);
+  transition: opacity 100ms, transform 100ms;
+}
+
+.animtext-enter {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  .animtext-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 2900ms,transform 2900ms;
+  }
+  .animtext-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .animtext-exit-active {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 100ms,transform 1000ms;
+}
+
+
+
+.animbutton-enter {
+    opacity: 0;
+    transform: scale(0.38);
+  }
+  .animbutton-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 2900ms,transform 2900ms;
+  }
+  .animbutton-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .animbutton-exit-active {
+    color: black;
+    opacity: 0;
+    transform: scale(0.38);
+    transition: opacity 100ms,transform 1000ms;
+}
+
+
+
+@media screen and (max-width:1100px){
+    .text{
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width:800px){
+    .text{
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width:600px){
+    .text{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:450px){
+    .text{
+        font-size: 1.45rem;
+    }
+}
