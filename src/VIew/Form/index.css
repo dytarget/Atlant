@@ -1,0 +1,114 @@
+.form-input{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20%;
+}
+
+.form-body{
+    display: flex;
+}
+
+.little-fields{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px;
+}
+
+.form-body label{
+    font-size: 0.9rem;
+    margin: 8px 0px 0px 0px;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.form-body input{
+    border-radius: 5px;
+    border: 1px solid #6b3354;
+    font-size: 0.9rem;
+    width: 320px;
+    height: 45px;
+    padding-left: 20px;
+    outline: none;
+}
+.form-body textarea{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #6b3354;
+    font-size: 0.9rem;
+    width: 150%;
+    height: 150%;
+}
+
+.message-field{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+}
+.submit-form{
+    margin-left: 15%;
+}
+.submit-form input{
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    background-image: linear-gradient(180deg,#6b3354 0,#3c4673 100%);
+    margin-left: 30px;
+    color: white;
+    border: 0px;
+    padding: 13px 44px;
+    border-radius: 200px;
+    outline: none;
+}
+.submit-form input:hover{
+    background-image: linear-gradient(180deg, #3c4673 0,#6b3354 100%);
+}
+
+.soglasie a{
+    color: #6b3354;
+}
+
+.soglasie{
+    font-size: 1rem;
+    margin-left: 15%;
+
+}
+
+@media screen and (max-width:600px){
+    .form-body{
+        flex-direction:column;
+        margin: 0;
+    }
+    .form-body input{
+        margin: 0px;
+    }
+    .form-input{
+        padding-left: 0px;
+        align-items: center;
+    }
+    .little-fields{
+        padding: 0px;
+        margin: 0px;
+    }
+    .submit-form input{
+        width: 40vw;
+        margin: 0px;
+        padding: 20px;
+    }
+    .submit-form{
+        margin-left: -10px;
+        margin-top: 20px;
+    }
+    .soglasie{
+        margin: 15px auto;
+        text-align: center;
+    }
+    .message-field{
+        padding: 0px;
+        max-width: 100%;
+    }
+
+   .form-body textarea{
+       width: 320px;
+   }
+}

@@ -60,7 +60,7 @@ export class AboutUs extends Component {
                             
                                         <CSSTransition in={this.state.which===1}  timeout={2900} classNames="animbutton">
                                             <button onClick={()=>{console.log("gekk");
-                                            }} className="btn" style={{backgroundColor:"#eabd00"}}>Больше +</button>
+                                            }} className="abt-button" style={{backgroundColor:"#eabd00"}}>Больше +</button>
                                         </CSSTransition>
                                 <CSSTransition in={this.state.which===1} timeout={2900} classNames="alert">
                                     <div className="animated" style={{backgroundColor:"#eabd00"}}></div>
@@ -82,7 +82,7 @@ export class AboutUs extends Component {
                                 </div>
                                     <div className="popup">
                                     <CSSTransition in={this.state.which===2}  timeout={2900} classNames="animbutton">
-                                        <button className="btn" style={{backgroundColor:"#ff4713"}}>Больше +</button>
+                                        <button className="abt-button" style={{backgroundColor:"#ff4713"}}>Больше +</button>
                                     </CSSTransition>
                                         <div></div>
                                     </div>
@@ -106,7 +106,7 @@ export class AboutUs extends Component {
                                 </div>
                                     <div className="popup">
                                         <CSSTransition in={this.state.which===3}  timeout={2900} classNames="animbutton">
-                                            <button className="btn" style={{backgroundColor:"#af0924"}}>Больше +</button>
+                                            <button className="abt-button" style={{backgroundColor:"#af0924"}}>Больше +</button>
                                         </CSSTransition>
                                         <div></div>
                                     </div>
@@ -129,7 +129,7 @@ export class AboutUs extends Component {
                                 </div>
                                     <div className="popup">
                                     <CSSTransition in={this.state.which===4}  timeout={2900} classNames="animbutton">
-                                        <button className="btn" style={{backgroundColor:"#008b5c"}}>Больше +</button>
+                                        <button className="abt-button" style={{backgroundColor:"#008b5c"}}>Больше +</button>
                                     </CSSTransition>
                                     <div></div>
                                     </div>
@@ -151,7 +151,7 @@ export class AboutUs extends Component {
                                 </div>
                                     <div className="popup">
                                         <CSSTransition in={this.state.which===5}  timeout={2900} classNames="animbutton">
-                                            <button className="btn" style={{backgroundColor:"#9062bc"}}>Больше +</button>
+                                            <button className="abt-button" style={{backgroundColor:"#9062bc"}}>Больше +</button>
                                         </CSSTransition>
                                     </div>
                                 <CSSTransition in={this.state.which===5} timeout={2900} classNames="alert">

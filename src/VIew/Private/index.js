@@ -18,6 +18,7 @@ export class Private extends Component {
             active:"",
             showTopMenu:false,
             index:1,
+            fixed:false,
             direction:null,
             activeclient:"torgovat",
             activeopp:"find"
@@ -30,12 +31,13 @@ export class Private extends Component {
         });
     }
     componentDidMount(){
-        if (window.scrollY<500) {
-        }
+
         window.addEventListener('scroll',(event)=>{
-           if(window.scrollY<500){
-               console.log(window.scrollY);
-               
+           if(window.scrollY>500){
+               this.setState({showDropdown:true,fixed:true});
+           }
+           else{
+                this.setState({showDropdown:false,fixed:false});
            }
         });
     }
@@ -54,13 +56,13 @@ export class Private extends Component {
         return (
             <div className="all">
                 <header className="headerPrivate">
-                        <div style={this.state.showDropdown ? {backgroundColor:"white",backgroundImage:"unset"}:null} className="top-nav">
+                        <div style={this.state.showDropdown || this.state.showNavItems || this.state.showMenu ? {backgroundColor:"white",backgroundImage:"unset"}:null} className="top-nav">
                             <div className="topnav-elem">Этика и Честность</div>
                             <div className="topnav-elem">Контакты</div>
                             <div className="topnav-elem">Вакансии</div>
-                            <div className="topnav-elem">О Компании</div>
+                            <div className="topnav-elem" onClick={()=>{this.props.history.push('/aboutus')}}>О Компании</div>
                         </div>
-                    <nav className={this.state.showDropdown ? 'opened' : null}>
+                    <nav style={this.state.fixed? {position:"fixed",top:"0",borderBottom:"1px solid grey",zIndex:100000}:null} className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'opened' : null}>
                         <div className="attrs">
                             <div className="brand" ><Link to="/"><img className="log" src={require('./Logo_atlant (1).png')} alt="Logo"/></Link>
 </div>
@@ -70,13 +72,13 @@ export class Private extends Component {
                             <div className="nav-item-out"><div className="nav-item">Найти идею</div></div>
                         </div>
                             <div className="nav-right">
-                            <button className="nav-btn" style={this.state.showDropdown ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ? {borderColor:"#3c4673"}:null} class="fas fa-phone-alt ico"></i>8 777 413 69 70</button>
-                            <button className="nav-btn" style={this.state.showDropdown ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
-                            <button onClick={this.showMenu}  className={this.state.showDropdown ? 'menu-opened' : 'menu'}><i class={this.state.showMenu ? "fas fa-times" : "fas fa-bars"}></i>Меню</button>
+                            <button className="nav-btn" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null} class="fas fa-phone-alt ico"></i>8 777 413 69 70</button>
+                            <button className="nav-btn" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ||this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
+                            <button onClick={this.showMenu}  className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'menu-opened' : 'menu'}><i class={this.state.showMenu ? "fas fa-times" : "fas fa-bars"}></i>Меню</button>
                         </div>
                     </nav>
                     <CSSTransition in={this.state.showNavItems} timeout={1000} unmountOnExit classNames="dropdownanim">
-                        <div className="dropdown">
+                        <div style={this.state.fixed ? {marginTop:window.scrollY+50}:null} className="dropdown">
                             <div className="left-dropdown">
                                 <h5>Лучшие решения</h5>
                                 {this.state.active==="Вложить" && 
@@ -164,7 +166,7 @@ export class Private extends Component {
                     </div>
                 </CSSTransition>   
                 <CSSTransition in={this.state.showMenu} unmountOnExit timeout={1000} classNames="menuanim">
-                            <div className="menu-dp">
+                            <div style={this.state.fixed ? {marginTop:window.scrollY}:null} className="menu-dp">
                                 <div className="wrapper">
                                     <div className="menu-elem">
                                         <p className="menu-tit"><Link>Вложить</Link></p>
@@ -488,6 +490,8 @@ export class Private extends Component {
                     </div>
                 </section>
                 <hr/>
+                <div><h2 className="client-title">Напишите нам</h2></div>
+                <div style={{textAlign:"center",fontSize:"1.2rem"}} className="hovered-text">Мы постараемся ответить вам как можно скорее</div>
                 <Forms/>
                 <MDBFooter color="mdb-color" className="font-small pt-4 mt-4">
                     <MDBContainer className="text-center text-md-left">

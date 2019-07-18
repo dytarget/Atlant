@@ -17,9 +17,9 @@
     opacity: 1;
 }
 
-.btn{
-    width: 15%;
-    padding:20px 0;
+.abt-button{
+    width: 13%;
+    padding:15px 0;
     float: right;
     margin-top: calc(100vh - (45px + 1.5rem));
     opacity: 1;
@@ -30,6 +30,24 @@
     cursor: pointer;
 }
 
+@media screen and (max-width:900px){
+  .abt-button{
+    width: 20%;
+  }
+}
+
+
+@media screen and (max-width:500px){
+  .abt-button{
+    width: 40%;
+  }
+  .numbers{
+    font-size: 1rem;
+  }
+  .text{
+    margin-left: 40px;
+  }
+}
 
 .numbers{
     position: absolute;
@@ -43,7 +61,7 @@
     opacity: 0.5;
 }
 .numbers div::before {
-    content: "-";
+    content: "--";
     width: 3rem;
     height: 2px;
     margin-right: 1rem;
