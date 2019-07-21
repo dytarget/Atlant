@@ -1,8 +1,11 @@
 .bottom-layer{
     width: 100vw;
     height: 100vh;
+    max-width: 100%;
     background-color: black;
     color: white;
+    max-height: 100%;
+    margin-bottom: -400px;
 }
 
 .text{
@@ -16,7 +19,9 @@
     margin-top: 10%;
     opacity: 1;
 }
-
+.numbers i{
+  font-size: 1.2rem;
+}
 .abt-button{
     width: 13%;
     padding:15px 0;
@@ -61,7 +66,7 @@
     opacity: 0.5;
 }
 .numbers div::before {
-    content: "--";
+    content: "-";
     width: 3rem;
     height: 2px;
     margin-right: 1rem;
@@ -76,23 +81,28 @@
 .animated{
     width: 100vw;
     height: 100vh;
+    max-width: 100%;
     opacity: 0;
 }
 
 .alert-enter {
   opacity: 1;
+  max-width: 100%;
   transform: scale(0.9);
 }
 .alert-enter-active {
+  max-width: 100%;
   opacity: 0;
   transform: scale(1);
   transition: opacity 2400ms, transform 2400ms;
 }
 .alert-exit {
   opacity: 0;
+  max-width: 100%;
 }
 .alert-exit-active {
   opacity: 1;
+  max-width: 100%;
   transform: scale(0.9);
   transition: opacity 100ms, transform 100ms;
 }
@@ -100,6 +110,7 @@
 .animtext-enter {
     opacity: 0;
     transform: scale(0.8);
+    max-width: 100%;
   }
   .animtext-enter-active {
     opacity: 1;

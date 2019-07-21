@@ -2,7 +2,8 @@
     display:flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 20%;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
 .form-body{
@@ -29,15 +30,14 @@
     width: 320px;
     height: 45px;
     padding-left: 20px;
-    outline: none;
 }
 .form-body textarea{
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #6b3354;
     font-size: 0.9rem;
-    width: 150%;
-    height: 150%;
+    width: 110%;
+    height: 100%;
 }
 
 .message-field{
@@ -45,9 +45,7 @@
     padding: 20px;
     flex-direction: column;
 }
-.submit-form{
-    margin-left: 15%;
-}
+
 .submit-form input{
     outline: none;
     font-size: 1.1rem;
@@ -70,7 +68,6 @@
 
 .soglasie{
     font-size: 1rem;
-    margin-left: 15%;
 
 }
 

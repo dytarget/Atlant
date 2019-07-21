@@ -1,28 +1,48 @@
 .sectionMain{
     display: flex;
+    background: #efe9d1;
+    box-shadow:inset 30px 35px 30px 30px #e1d7be;
 }
 .logotip{
     width: 220px;
 }
+.headerMain{
+    padding: 10px 30px;
+}
+.kabinet{
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 10px 25px;
+    border: 2px solid #6b3354;
+    color: black; 
+    outline: none;
+}
+.kabinet:hover{
+    background:linear-gradient(180deg,#6b3354 0,#3c4673 100%);
+    color: white;
+}
 .leftMain{
-    background-image: url('./left-back.jpg');
-    background-size: cover;
-    background-position: right;
+    background-image: url('./left-back_crop.jpg');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
     width: 50%;
     height: 90vh;
 }
 .rightMain{
     width: 50%;
     height: 90vh;
-    background: rgba(128,128,128, 0.25);
+    background: transparent;
     padding: 0px 25px;
 }
 .rightMain h4{
-    font-family: 'Open Sans Condensed', sans-serif;
     color: #6b3354;
     font-size: 2rem;
     margin-top: 40px;
     margin-left: 50px;
+    padding-bottom: 30px;
+    letter-spacing: -1px;
+    box-sizing: border-box;
 }
 
 .rightMain i{
@@ -50,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(128,128,128, 0.15);
+    background: rgba(128,128,128, 0);
 }
 .sep{
     width: 100%;
@@ -61,7 +81,7 @@
     padding: 20px 10px;
     border-bottom: 2px solid rgba(128,128,128, 0.15);
     cursor: pointer;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-weight: 300;
     transition: 0.4s ease;  
     font-size: 0.95rem;
@@ -173,4 +193,138 @@ footer a:hover{
     100%{
         opacity: 1;
       }
+}
+
+#bars {
+    height: 30px;
+    left: 45%;
+    margin: -30px 0 0 -20px;
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(to right,#812b47 , #394674  );
+    border-image-slice: 1;
+    animation: sound2 5s linear;
+}
+
+#image{
+    position: absolute;
+    left:50%;
+    top: 49%;
+    height: 30px;
+}
+#image img{
+    width: 120px;
+    margin: -60px 0 0 -40px;
+    padding: 0px;
+}
+
+#image::before{
+    content: " ";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    margin: -60px 0 0 -40px;
+    background: white;
+    z-index: 2;
+    will-change: width;
+    animation: disappear-anim 4.9s linear;
+}
+
+@keyframes disappear-anim{
+    from {
+        width: 160%;
+    }
+    20%{
+        width: 160%;
+    }
+    60%{
+        width: 0;
+    }
+    to{
+        width: 0;
+    }
+}
+
+.bar {
+    bottom: 1px;
+    position: absolute;
+    margin-bottom: 2px;
+    width: 5px;      
+    will-change: opacity,height;
+    opacity: 0;
+    border-radius: 2px;
+    animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+    0% {
+       opacity: .35;
+        height: 15px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 60px;        
+    }
+}
+
+@keyframes sound2 {
+    0% {
+        transform: rotate(0);
+    }
+    60%{
+        transform: rotate(0);
+    }
+    75% {
+        transform: rotate(-90deg); 
+    }
+    90%{
+        transform: rotate(-90deg); 
+        opacity: 1;
+    }
+    95%{
+        transform: rotate(-90deg); 
+        opacity: 0;
+    }
+    100%{
+        transform: rotate(-90deg); 
+        opacity: 0;
+    }
+}
+
+.bar:nth-child(1)  { height:50px;background: #812b47; left: 1px; animation-duration: 474ms; }
+.bar:nth-child(2)  { height:60px;background: #763251;left: 11px; animation-duration: 433ms; }
+.bar:nth-child(3)  { height:70px;background: #673a5d;left: 20px; animation-duration: 407ms; }
+.bar:nth-child(4)  {height:60px; background: #534169;left: 29px; animation-duration: 458ms; }
+.bar:nth-child(5)  {height:50px; background: #394674;left: 38px; animation-duration: 400ms; }
+
+
+@media screen and (max-width:450px){
+    .kabinet{
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        text-align: center;
+    }
+    #bars{
+        left: 32%;
+    }
+    #image{
+        left: 52%;
+    }
+    .leftMain{
+        background-position: top;
+    }
+    .rightMain{
+        margin-top: -200px;
+    }
+
+    .rightMain span{
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    .rightMain{
+        padding: 0 15px;
+    }
+ 
 }

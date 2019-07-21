@@ -4,26 +4,39 @@ import './index.css';
 
 export class Forms extends Component {
 
+    state={
+        name:"",
+        phone:"",
+        email:"",
+        message:""
+    }
+
+    handleChange=(event)=>{
+        if (event.target.name==="phone" && !isNaN(event.target.value) && event.target.value.length<=11) {
+            this.setState({[event.target.name]:event.target.value});        
+        }
+        if (event.target.name!=="phone") {
+            this.setState({[event.target.name]:event.target.value});        
+        }
+    }
+
+
     render() {
         return (
             <div className="field">
                 <form onSubmit={()=>{}} className="form-input">
                     <div className="form-body">
                         <div className="little-fields">
-                            <label htmlFor="name">Имя</label>
-                            <input placeholder="Введите имя" name="name" required type="text"/>
-                            <label htmlFor="surname">Фамилия</label>
-                            <input placeholder="Введите фамилию" name="surname" required type="text"/>
-                            <label htmlFor="telephone">Номер телефона</label>
-                            <input placeholder="Введите номер телефона" name="telelphone" required type="tel"/>
+                            <label htmlFor="name">ФИО</label>
+                            <input value={this.state.name} onChange={this.handleChange} placeholder="Введите ФИО" name="name" required type="text"/>
+                            <label htmlFor="phone">Номер телефона</label>
+                            <input value={this.state.phone} onChange={this.handleChange} placeholder="Введите номер телефона" name="phone" required type="tel"/>
                             <label htmlFor="email">Ваш e-mail</label>
-                            <input placeholder="Введите -mail" name="email" required type="email"/>
-                            <label htmlFor="city">Город</label>
-                            <input placeholder="Введите город" name="city" required type="text"/>
+                            <input value={this.state.email} onChange={this.handleChange} placeholder="Введите -mail" name="email" required type="email"/>
                         </div>
                         <div className="message-field">
                             <label htmlFor="message">Ваш вопрос</label>
-                            <textarea placeholder="Напишите сюда ваш вопрос" name="message" rows="9" cols="30"></textarea> 
+                            <textarea value={this.state.message} onChange={this.handleChange} placeholder="Напишите сюда ваш вопрос" name="message" cols="30"></textarea> 
                         </div>
                     </div>
                     <p className="soglasie"><input type="checkbox"/>Подтверждаю <a href="!#">своё согласие на коммуникацию</a></p>

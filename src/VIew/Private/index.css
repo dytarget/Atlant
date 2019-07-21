@@ -1,8 +1,8 @@
-nav{
+.navbars{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(128,128,128, 0.75);
+    background: rgba(255,255,255, 0.45);
     padding: 0px 30px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
@@ -20,11 +20,14 @@ nav{
     padding: 0px;
 }
 
-.nav-btn{
+.nav-knopka{
     border: 0px;
     background: transparent;
     outline: none;
     color: white;
+}
+.nav-knopka:focus{
+    outline: none;
 }
 
 .menu{
@@ -41,6 +44,14 @@ nav{
     color:#3c4673;
     transition: 0.5s ease;
 }
+.menu:focus{
+    outline: none;
+}
+
+.menu-opened:focus{
+    outline: none;
+}
+
 .menu i{
     width: 30px;
 }
@@ -61,19 +72,19 @@ nav{
     font-weight: 300;
 }
 
-.nav-btn{
+.nav-knopka{
     opacity: 0.75;
 }
 
 .brand{
     padding: 30px 20px 0 0;
 }
-.nav-btn:hover{
+.nav-knopka:hover{
     opacity: 1;
     transition: 0.4s ease;
 }
 
-.nav-item{
+.zaebal-elem{
     font-size: 1rem;
     padding: 40px 10px;
     opacity: 0.8;
@@ -81,7 +92,7 @@ nav{
 }
 
 
-.nav-item-out:after{
+.zaebal-elem-out:after{
     content: '';
 	display: block;
 	margin: auto;
@@ -91,12 +102,12 @@ nav{
 	transition: width .5s ease, background-color .5s ease;
 }
 
-.nav-item:hover{
+.zaebal-elem:hover{
     opacity: 1;
     transition: 0.2s ease center;
 }
 
-.nav-item-out:hover:after{
+.zaebal-elem-out:hover:after{
     width: 100%;
     background: white;
 }
@@ -115,6 +126,9 @@ nav{
     display: flex;
 }
 
+.texts-car{
+    top: 40%;
+}
 
 
 .right-dropdown{
@@ -304,12 +318,13 @@ nav{
 
 .top-nav{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
     font-size: 1rem;
+    padding-left: 30px;
     color: #666b71;
-    background: rgba(128,128,128, 0.75);
+    background: rgba(255,255,255, 0.45);
     height: fit-content;
     position: relative;
     z-index: 3;
@@ -317,15 +332,16 @@ nav{
 
 .topnav-elem{
     opacity: 1;
-    padding: 15px 20px;
+    padding: 15px 10px;
+    color: white;
+    opacity: 0.75;
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.5s ease;
-    border-bottom: 2px solid white;
-    background: white;
+    transform: translateY(10px);
 }
 
-.topnav-elem:first-child{
+/* .topnav-elem:first-child{
     border-bottom-left-radius: 10px;
     border-left: 2px solid white;
 }
@@ -333,17 +349,35 @@ nav{
 .topnav-elem:last-child{
     border-right: 2px solid white;
     border-bottom-right-radius: 10px;
-}
+} */
 
 .topnav-elem:hover{
-    color:black;
+    opacity: 1;
     transform: translateY(10px);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transition: 0.5s ease;
 }
 
-.topnav-elem:last-child:hover{
+.topnav-elem:after{
+    content: '';
+	display: block;
+	margin: auto;
+	height: 2px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+
+
+.topnav-elem:hover:after{
+    width: 100%;
+    background: white;
+}
+
+
+
+/* .topnav-elem:last-child:hover{
     color:black;
     transform: translateY(10px);
     border-bottom-left-radius: 0px;
@@ -355,7 +389,7 @@ nav{
     border-bottom-right-radius: 0px;
     transform: translateY(10px);
     transition: 0.5s ease;
-}
+} */
 
 .topnavanim-enter{
     height: 0;
@@ -376,10 +410,7 @@ nav{
 
 
 .car-item{
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+
 }
 
 
@@ -388,20 +419,10 @@ nav{
     position: absolute;
     left: 0; right: 0;
     top: 0; bottom: 0;
-    z-index: 0;
+    z-index: 1;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=);
-    opacity: 0.75;
+    opacity: 0.25;
   }
-
-  .car-item::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0;
-    top: 0; bottom: 0;
-    z-index: 0;
-    background: rgba(0,0,0,0.4);
-  }
-
 
 .innercontentcar{
     top: 40vh;
@@ -891,6 +912,10 @@ hr{
     .menu-list{
         display: none;
     }
+    .d-block{
+        height: 100vh;
+        object-fit: cover;
+    }
 }
 
 
@@ -898,10 +923,10 @@ hr{
     .top-nav{
         display: none;
     }
-    .nav-btn{
+    .nav-knopka{
         display: none;
     }
-    .nav-item{
+    .zaebal-elem{
         display: none;
     }
     .brand{

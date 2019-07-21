@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './index.css';
 import {Link} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
-import {Carousel} from 'react-bootstrap';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import {  MDBContainer, MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask } from "mdbreact";
 import Forms from '../Form';
+import Footer from '../Footer';
 
 
 
@@ -12,6 +12,7 @@ export class Private extends Component {
     constructor(){
         super();
         this.state={
+            isLoading:true,
             showNavItems:false,
             showMenu:false,
             showDropdown:false,
@@ -31,9 +32,9 @@ export class Private extends Component {
         });
     }
     componentDidMount(){
-
+        setTimeout(() => this.setState({ isLoading: false }), 2000); 
         window.addEventListener('scroll',(event)=>{
-           if(window.scrollY>500){
+           if(window.scrollY>580){
                this.setState({showDropdown:true,fixed:true});
            }
            else{
@@ -54,31 +55,46 @@ export class Private extends Component {
     }
     render() {
         return (
+            this.state.isLoading ? (
+                <div id="bars" style={{left:"50%"}}>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            ):(
             <div className="all">
                 <header className="headerPrivate">
                         <div style={this.state.showDropdown || this.state.showNavItems || this.state.showMenu ? {backgroundColor:"white",backgroundImage:"unset"}:null} className="top-nav">
-                            <div className="topnav-elem">Этика и Честность</div>
-                            <div className="topnav-elem">Контакты</div>
-                            <div className="topnav-elem">Вакансии</div>
-                            <div className="topnav-elem" onClick={()=>{this.props.history.push('/aboutus')}}>О Компании</div>
+                            <div className="topnav-elem" style={this.state.showDropdown ? {color:"#3c4673"}:null}>Этика и Честность</div>
+                            <div className="topnav-elem" style={this.state.showDropdown ? {color:"#3c4673"}:null}>Контакты</div>
+                            <div className="topnav-elem" style={this.state.showDropdown ? {color:"#3c4673"}:null}>Вакансии</div>
+                            <div className="topnav-elem" style={this.state.showDropdown ? {color:"#3c4673"}:null}>Сервисы</div>
+                            <div className="topnav-elem" style={this.state.showDropdown ? {color:"#3c4673"}:null} onClick={()=>{this.props.history.push('/aboutus')}}>О Компании</div>
                         </div>
-                    <nav style={this.state.fixed? {position:"fixed",top:"0",borderBottom:"1px solid grey",zIndex:100000}:null} className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'opened' : null}>
+                    <nav style={this.state.fixed? {position:"fixed",top:"0",borderBottom:"1px solid grey",zIndex:100000}:null} className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'opened navbars' : 'navbars'}>
                         <div className="attrs">
                             <div className="brand" ><Link to="/"><img className="log" src={require('./Logo_atlant (1).png')} alt="Logo"/></Link>
 </div>
-                            <div className="nav-item-out" onClick={()=>{this.showDrop("Вложить")}}><div className="nav-item" style={this.state.active==="Вложить" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Вложить</div></div>
-                            <div className="nav-item-out"  onClick={()=>{this.showDrop("Торговать")}}><div className="nav-item" style={this.state.active==="Торговать" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Торговать</div></div>
-                            <div className="nav-item-out"   onClick={()=>{this.showDrop("Научиться")}}><div className="nav-item"  style={this.state.active==="Научиться" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Научиться</div></div>
-                            <div className="nav-item-out"><div className="nav-item">Найти идею</div></div>
+                            <div className="zaebal-elem-out" onClick={()=>{this.showDrop("Вложить")}}><div className="zaebal-elem" style={this.state.active==="Вложить" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Вложить</div></div>
+                            <div className="zaebal-elem-out"  onClick={()=>{this.showDrop("Торговать")}}><div className="zaebal-elem" style={this.state.active==="Торговать" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Торговать</div></div>
+                            <div className="zaebal-elem-out"   onClick={()=>{this.showDrop("Научиться")}}><div className="zaebal-elem"  style={this.state.active==="Научиться" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Научиться</div></div>
+                            <div className="zaebal-elem-out"><div className="zaebal-elem">Найти идею</div></div>
                         </div>
                             <div className="nav-right">
-                            <button className="nav-btn" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null} class="fas fa-phone-alt ico"></i>8 777 413 69 70</button>
-                            <button className="nav-btn" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ||this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
+                            <button className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null} class="fas fa-phone ico"></i>8 777 413 69 70</button>
+                            <button className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ||this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
                             <button onClick={this.showMenu}  className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'menu-opened' : 'menu'}><i class={this.state.showMenu ? "fas fa-times" : "fas fa-bars"}></i>Меню</button>
                         </div>
                     </nav>
                     <CSSTransition in={this.state.showNavItems} timeout={1000} unmountOnExit classNames="dropdownanim">
-                        <div style={this.state.fixed ? {marginTop:window.scrollY+50}:null} className="dropdown">
+                        <div style={window.scrollY>580 ? {position:"fixed",marginTop:"40px"}:null} className="dropdown">
                             <div className="left-dropdown">
                                 <h5>Лучшие решения</h5>
                                 {this.state.active==="Вложить" && 
@@ -166,7 +182,7 @@ export class Private extends Component {
                     </div>
                 </CSSTransition>   
                 <CSSTransition in={this.state.showMenu} unmountOnExit timeout={1000} classNames="menuanim">
-                            <div style={this.state.fixed ? {marginTop:window.scrollY}:null} className="menu-dp">
+                            <div  style={window.scrollY>580 ? {position:"fixed",marginTop:"40px"}:null} className="menu-dp">
                                 <div className="wrapper">
                                     <div className="menu-elem">
                                         <p className="menu-tit"><Link>Вложить</Link></p>
@@ -224,29 +240,66 @@ export class Private extends Component {
                                 </div>
                             </div>
                 </CSSTransition>
-                <Carousel activeIndex={this.state.index} direction={this.state.direction} onSelect={this.handleSelect} style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh"}}>
-                    <Carousel.Item className="car-item" style={{backgroundImage:"url("+require('./back.jpg')+")"}}>
-                        <Carousel.Caption className="innercontentcar">
-                            <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
-                            <div className="pcarousel">Вдохновляйтесь <br/> инветиционными идеями</div>
-                            <button className="btncarousel">Узнать больше</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item  className="car-item" style={{backgroundImage:"url("+require('./back2.jpg')+")"}}>
-                        <Carousel.Caption className="innercontentcar">
-                            <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
-                            <div className="pcarousel">Вдохновляйтесь <br/> инвеcтиционными идеями</div>
-                            <button className="btncarousel">Узнать больше</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item  className="car-item" style={{backgroundImage:"url("+require('./back3.jpg')+")"}}>
-                        <Carousel.Caption className="innercontentcar">
-                            <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
-                            <div className="pcarousel">Вдохновляйтесь <br/> инветиционными идеями</div>
-                            <button className="btncarousel">Узнать больше</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+    
+                <MDBContainer>
+                    <MDBCarousel
+                        activeItem={1}
+                        length={3}
+                        showControls={true}
+                        showIndicators={true}
+                        className="z-depth-1"
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                    >
+                        <MDBCarouselInner>
+                        <MDBCarouselItem className="car-item" itemId="1">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src={require('./back.jpg')}
+                                alt="First slide"
+                            />
+                            <MDBMask overlay="black-strong"  />
+                            </MDBView>
+                            <MDBCarouselCaption className="texts-car">
+                                <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
+                                <div className="pcarousel">Вдохновляйтесь <br/> инветиционными идеями</div>
+                                <button className="btncarousel">Узнать больше</button>
+                            </MDBCarouselCaption>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem className="car-item" itemId="2">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src={require('./back2.jpg')}
+                                alt="Second slide"
+                            />
+                            <MDBMask overlay="black-strong" />
+                            </MDBView>
+                            <MDBCarouselCaption className="texts-car">
+                                <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
+                                <div className="pcarousel">Вдохновляйтесь <br/> инветиционными идеями</div>
+                                <button className="btncarousel">Узнать больше</button>
+                            </MDBCarouselCaption>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem className="car-item" itemId="3">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src={require('./back3.jpg')}
+                                alt="Third slide"
+                            />
+                            <MDBMask overlay="black-strong"  />
+
+                            </MDBView>
+                            <MDBCarouselCaption className="texts-car">
+                                <span className="titlecarousel">Ваш финансовый <br/> аналитик</span>
+                                <div className="pcarousel">Вдохновляйтесь <br/> инветиционными идеями</div>
+                                <button className="btncarousel">Узнать больше</button>
+                            </MDBCarouselCaption>
+                        </MDBCarouselItem>
+                        </MDBCarouselInner>
+                    </MDBCarousel>
+                    </MDBContainer>
                 </header>
                 <section className="sectionPrivate">
                     <div className="why-wrapper">
@@ -491,109 +544,11 @@ export class Private extends Component {
                 </section>
                 <hr/>
                 <div><h2 className="client-title">Напишите нам</h2></div>
-                <div style={{textAlign:"center",fontSize:"1.2rem"}} className="hovered-text">Мы постараемся ответить вам как можно скорее</div>
+                <div style={{textAlign:"center",fontSize:"1.2rem"}}>Мы постараемся ответить вам как можно скорее</div>
                 <Forms/>
-                <MDBFooter color="mdb-color" className="font-small pt-4 mt-4">
-                    <MDBContainer className="text-center text-md-left">
-                        <MDBRow className="text-center text-md-left mt-3 pb-3">
-                        <MDBCol md="3" lg="3" xl="3" className="mx-auto mt-3">
-                            <h6 className="text-uppercase mb-4 font-weight-bold">
-                            Atlant Finance
-                            </h6>
-                            <p>
-                            Atlant Finance LTD - это инвестиционно-управляющая компания, задача которой является привлечение
-                            и управление инвестиционным капиталом. 
-                            </p>
-                        </MDBCol>
-                        <hr className="w-100 clearfix d-md-none" />
-                        <MDBCol md="2" lg="2" xl="2" className="mx-auto mt-3">
-                            <h6 className="text-uppercase mb-4 font-weight-bold">Продукты</h6>
-                            <p>
-                            <a href="#!">Частный инвестор</a>
-                            </p>
-                            <p>
-                            <a href="#!">Корпоративный инвестор</a>
-                            </p>
-                            <p>
-                            <a href="#!">Портфель Atlant Finance</a>
-                            </p>
-                            <p>
-                            <a href="#!">Школа Atlant</a>
-                            </p>
-                        </MDBCol>
-                        <hr className="w-100 clearfix d-md-none" />
-                        <MDBCol md="3" lg="2" xl="2" className="mx-auto mt-3">
-                            <h6 className="text-uppercase mb-4 font-weight-bold">
-                            О Компании
-                            </h6>
-                            <p>
-                            <a href="#!">Миссия и принципы</a>
-                            </p>
-                            <p>
-                            <a href="#!">Пресс- центр</a>
-                            </p>
-                            <p>
-                            <a href="#!">Лицензии</a>
-                            </p>
-                            <p>
-                            <a href="#!">Реквизиты</a>
-                            </p>
-                        </MDBCol>
-                        <hr className="w-100 clearfix d-md-none" />
-                        <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3">
-                            <h6 className="text-uppercase mb-4 font-weight-bold">Контакты</h6>
-                            <p>
-                            <i className="fa fa-home mr-3" /> Нурлы Тау, Алматы 10012, KZ
-                            </p>
-                            <p>
-                            <i className="fa fa-envelope mr-3" /> atlant@gmail.com
-                            </p>
-                            <p>
-                            <i className="fa fa-phone mr-3" /> + 01 234 567 88
-                            </p>
-                            <p>
-                            <i className="fa fa-print mr-3" /> + 01 234 567 89
-                            </p>
-                        </MDBCol>
-                        </MDBRow>
-                        <hr />
-                        <MDBRow className="d-flex align-items-center">
-                        <MDBCol md="8" lg="8">
-                            <p className="text-center text-md-left grey-text">
-                            &copy; {new Date().getFullYear()} Copyright:{" "}
-                            Atlant Finance
-                            </p>
-                        </MDBCol>
-                        <MDBCol md="4" lg="4" className="ml-lg-0">
-                            <div className="text-center text-md-right">
-                            <ul className="list-unstyled list-inline">
-                                <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-facebook-f" />
-                                </a>
-                                </li>
-                                <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-twitter" />
-                                </a>
-                                </li>
-                                <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-google-plus" />
-                                </a>
-                                </li>
-                                <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-linkedin-in" />
-                                </a>
-                                </li>
-                            </ul>
-                            </div>
-                        </MDBCol>
-                        </MDBRow>
-                    </MDBContainer>
-                </MDBFooter>
+               <Footer/>
             </div>
+            )
         )
     }
 }
