@@ -39,6 +39,16 @@
     width: 110%;
     height: 100%;
 }
+.form-body select{
+    padding-left: 10px;
+    color: grey;
+    border-radius: 5px;
+    border: 1px solid #6b3354;
+    font-size: 0.9rem;
+    height: 30%;
+    background: transparent;
+}
+
 
 .message-field{
     display: flex;
@@ -90,14 +100,14 @@
     .submit-form input{
         width: 40vw;
         margin: 0px;
-        padding: 20px;
+        padding: 10px;
     }
     .submit-form{
         margin-left: -10px;
         margin-top: 20px;
     }
     .soglasie{
-        margin: 15px auto;
+        margin: 15px 25px;
         text-align: center;
     }
     .message-field{
@@ -108,4 +118,8 @@
    .form-body textarea{
        width: 320px;
    }
+   .form-body select{
+       height: 45px;
+   }
+  
 }

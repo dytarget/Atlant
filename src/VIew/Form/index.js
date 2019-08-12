@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+import axios from 'axios';
 
 
 export class Forms extends Component {
@@ -8,7 +9,9 @@ export class Forms extends Component {
         name:"",
         phone:"",
         email:"",
-        message:""
+        message:"",
+        soglasie:true,
+        error:false
     }
 
     handleChange=(event)=>{
@@ -20,11 +23,29 @@ export class Forms extends Component {
         }
     }
 
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        var {name,phone,email,message}=this.state;
+        if (name.length && phone.length && email.length && message.length) {
+            axios.post('http://89.219.32.117:5000/questions',{name:name,phone,phone,email:email,question:message}).then(res=>{
+                window.alert("Успешно отправлено!");
+                this.setState({ name:"",
+                phone:"",
+                email:"",
+                message:"",error:false})
+            }).catch(error=>{window.alert("Произошла ошибка!")});
+        }
+        else{
+            this.setState({error:true})
+        }
+       
+    }
+
 
     render() {
         return (
             <div className="field">
-                <form onSubmit={()=>{}} className="form-input">
+                <form onSubmit={this.handleSubmit} className="form-input">
                     <div className="form-body">
                         <div className="little-fields">
                             <label htmlFor="name">ФИО</label>
@@ -39,10 +60,11 @@ export class Forms extends Component {
                             <textarea value={this.state.message} onChange={this.handleChange} placeholder="Напишите сюда ваш вопрос" name="message" cols="30"></textarea> 
                         </div>
                     </div>
-                    <p className="soglasie"><input type="checkbox"/>Подтверждаю <a href="!#">своё согласие на коммуникацию</a></p>
+                    <p className="soglasie"><input name="soglasie" value={this.state.soglasie} onChange={this.handleChange} type="checkbox"/>Подтверждаю своё согласие на коммуникацию</p>
+                    {this.state.error && <p style={{textAlign:"center",color:"red"}}>Заполните все данные и условия</p>}
                     <div className="submit-form">
                         <input type="reset" value="Очистить"/>
-                        <input type="submit" value="Отправить"/>
+                        <input onClick={this.handleSubmit} type="submit" value="Отправить"/>
                     </div>
                 </form>
             </div>

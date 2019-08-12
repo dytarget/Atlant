@@ -56,16 +56,16 @@ export class Footer extends Component {
                         <MDBCol md="2" lg="2" xl="2"  className="mx-auto mt-3 cols">
                             <h6 className="text-uppercase mb-4 font-weight-bold">Продукты</h6>
                             <p>
-                            <a href="#!">Частный инвестор</a>
+                            <a href="/private">Частный инвестор</a>
                             </p>
                             <p>
-                            <a href="#!">Корпоративный инвестор</a>
+                            <a href="/corporative">Корпоративный инвестор</a>
                             </p>
                             <p>
-                            <a href="#!">Портфель Atlant Finance</a>
+                            <a href="/corporative/3">Портфель Atlant Finance</a>
                             </p>
                             <p>
-                            <a href="#!">Школа Atlant</a>
+                            <a href="/school">Школа Atlant</a>
                             </p>
                         </MDBCol>
                         <hr className="w-100 clearfix d-md-none" />
@@ -74,16 +74,16 @@ export class Footer extends Component {
                             О Компании
                             </h6>
                             <p>
-                            <a href="#!">Миссия и принципы</a>
+                            <a href="/aboutus/2">О нас</a>
                             </p>
                             <p>
-                            <a href="#!">Пресс- центр</a>
+                            <a href="/aboutus">Пресс- центр</a>
                             </p>
                             <p>
-                            <a href="#!">Лицензии</a>
+                            <a href="/aboutus/4">Что мы делаем</a>
                             </p>
                             <p>
-                            <a href="#!">Реквизиты</a>
+                            <a href="/aboutus/3">Наши партнеры</a>
                             </p>
                         </MDBCol>
                         <hr className="w-100 clearfix d-md-none" />

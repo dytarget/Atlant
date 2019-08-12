@@ -1,7 +1,6 @@
 .sectionMain{
     display: flex;
-    background: #efe9d1;
-    box-shadow:inset 30px 35px 30px 30px #e1d7be;
+    background: white;
 }
 .logotip{
     width: 220px;
@@ -11,7 +10,7 @@
 }
 .kabinet{
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 10px 25px;
     border: 2px solid #6b3354;
     color: black; 
@@ -22,7 +21,7 @@
     color: white;
 }
 .leftMain{
-    background-image: url('./left-back_crop.jpg');
+    background-image: url('../../img/blackPNG.png');
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
@@ -197,7 +196,7 @@ footer a:hover{
 
 #bars {
     height: 30px;
-    left: 45%;
+    left: 44.5%;
     margin: -30px 0 0 -20px;
     position: absolute;
     top: 50%;
@@ -235,15 +234,19 @@ footer a:hover{
 @keyframes disappear-anim{
     from {
         width: 160%;
+        left:0;
     }
-    20%{
+    40%{
         width: 160%;
+        left:0;
     }
-    60%{
-        width: 0;
+    80%{
+        width: 0%;
+        left: 160%;
     }
     to{
-        width: 0;
+        width: 0%;
+        left: 160%;
     }
 }
 
@@ -270,11 +273,11 @@ footer a:hover{
 }
 
 @keyframes sound2 {
-    0% {
+    15% {
         transform: rotate(0);
     }
-    60%{
-        transform: rotate(0);
+    35%{
+        transform: rotate(-90deg);
     }
     75% {
         transform: rotate(-90deg); 
@@ -300,6 +303,188 @@ footer a:hover{
 .bar:nth-child(5)  {height:50px; background: #394674;left: 38px; animation-duration: 400ms; }
 
 
+.cover-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 28%;
+    position: absolute;
+    left: 12%;
+}
+
+.cover-elem{
+    width: 25px;
+    background: white;
+    height: 25px;
+    will-change: opacity;
+    border: 1px solid white;
+    opacity: 0;
+}
+
+.cover-elem:nth-child(n).cover-elem:nth-child(-n+14){
+    -webkit-animation: cover-anim 4.7s ease;
+    animation: cover-anim 4.7s ease;
+}
+.cover-elem:nth-child(n+14).cover-elem:nth-child(-n+28){
+    -webkit-animation: cover-anim 4.6s ease;
+
+    animation: cover-anim 4.6s ease;
+}
+.cover-elem:nth-child(n+28).cover-elem:nth-child(-n+42){
+
+    -webkit-animation: cover-anim 4.5s ease;
+    animation: cover-anim 4.5s ease;
+}
+.cover-elem:nth-child(n+42).cover-elem:nth-child(-n+56){
+    -webkit-animation: cover-anim 4.4s ease;
+    animation: cover-anim 4.4s ease;
+}
+.cover-elem:nth-child(n+56).cover-elem:nth-child(-n+70){
+    -webkit-animation: cover-anim 4.3s ease;
+    animation: cover-anim 4.3s ease;
+}
+.cover-elem:nth-child(n+70).cover-elem:nth-child(-n+84){
+    -webkit-animation: cover-anim 4.2s ease;
+    animation: cover-anim 4.2s ease;
+
+}
+.cover-elem:nth-child(n+84).cover-elem:nth-child(-n+98){
+    -webkit-animation: cover-anim 4.1s ease;
+    animation: cover-anim 4.1s ease;
+
+}
+.cover-elem:nth-child(n+98).cover-elem:nth-child(-n+112){
+    -webkit-animation: cover-anim 4s ease;
+    animation: cover-anim 4s ease;
+
+}
+.cover-elem:nth-child(n+112).cover-elem:nth-child(-n+126){
+    -webkit-animation: cover-anim 3.9s ease;
+    animation: cover-anim 3.9s ease;
+
+}
+.cover-elem:nth-child(n+126).cover-elem:nth-child(-n+140){
+    -webkit-animation: cover-anim 3.8s ease;
+    animation: cover-anim 3.8s ease;
+
+}
+.cover-elem:nth-child(n+140).cover-elem:nth-child(-n+154){
+    -webkit-animation: cover-anim 3.7s ease;
+    animation: cover-anim 3.7s ease;
+
+}
+.cover-elem:nth-child(n+154).cover-elem:nth-child(-n+170){
+    -webkit-animation: cover-anim 3.6s ease;
+    animation: cover-anim 3.6s ease;
+
+}
+.cover-elem:nth-child(n+170).cover-elem:nth-child(-n+184){
+    -webkit-animation: cover-anim 3.5s ease;
+    animation: cover-anim 3.5s ease;
+}
+.cover-elem:nth-child(n+184).cover-elem:nth-child(-n+198){
+    -webkit-animation: cover-anim 3.4s ease;
+    animation: cover-anim 3.4s ease;
+
+}
+.cover-elem:nth-child(n+198).cover-elem:nth-child(-n+214){
+    -webkit-animation: cover-anim 3.3s ease;
+    animation: cover-anim 3.3s ease;
+
+}
+.cover-elem:nth-child(n+214).cover-elem:nth-child(-n+228){
+    -webkit-animation: cover-anim 3.2s ease;
+    animation: cover-anim 3.2s ease;   
+
+}
+.cover-elem:nth-child(n+228).cover-elem:nth-child(-n+242){
+    -webkit-animation: cover-anim 3.1s ease;
+    animation: cover-anim 3.1s ease;
+
+}
+.cover-elem:nth-child(n+242).cover-elem:nth-child(-n+256){
+    -webkit-animation: cover-anim 3s ease;
+    animation: cover-anim 3s ease;
+
+}
+.cover-elem:nth-child(n+256).cover-elem:nth-child(-n+270){
+    -webkit-animation: cover-anim 2.9s ease;
+    animation: cover-anim 2.9s ease;
+
+}
+.cover-elem:nth-child(n+270).cover-elem:nth-child(-n+284){
+    -webkit-animation: cover-anim 2.8s ease;
+    animation: cover-anim 2.8s ease;
+
+}
+.cover-elem:nth-child(n+284).cover-elem:nth-child(-n+298){
+    -webkit-animation: cover-anim 2.7s ease;
+    animation: cover-anim 2.7s ease;
+}
+
+.cover-elem:nth-child(n+298).cover-elem:nth-child(-n+312){
+    -webkit-animation: cover-anim 2.6s ease;
+    animation: cover-anim 2.6s ease;
+}
+.cover-elem:nth-child(n+312).cover-elem:nth-child(-n+326){
+    -webkit-animation: cover-anim 2.5s ease;
+    animation: cover-anim 2.5s ease;
+}
+.cover-elem:nth-child(n+326).cover-elem:nth-child(-n+340){
+    animation: cover-anim 2.4s ease;
+    -webkit-animation: cover-anim 2.4s ease;
+}
+.cover-elem:nth-child(n+340).cover-elem:nth-child(-n+354){
+    -webkit-animation: cover-anim 2.3s ease;
+    animation: cover-anim 2.3s ease;
+}
+.cover-elem:nth-child(n+354).cover-elem:nth-child(-n+370){
+    -webkit-animation: cover-anim 2.2s ease;
+    animation: cover-anim 2.2s ease;
+
+}
+.cover-elem:nth-child(n+370).cover-elem:nth-child(-n+384){
+    -webkit-animation: cover-anim 2.1s ease;
+    animation: cover-anim 2.1s ease;
+}
+.cover-elem:nth-child(n+384).cover-elem:nth-child(-n+398){
+    -webkit-animation: cover-anim 2s ease;
+    animation: cover-anim 2s ease;
+}
+
+
+
+
+
+
+
+@keyframes cover-anim{
+    from{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.99;
+    }
+    99%{
+        display: flex;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@-webkit-keyframes cover-anim{
+    from{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.99;
+    }
+    99%{
+        display: flex;
+    }
+    to{
+        opacity: 0;
+    }
+}
 @media screen and (max-width:450px){
     .kabinet{
         font-size: 0.8rem;
@@ -326,5 +511,15 @@ footer a:hover{
     .rightMain{
         padding: 0 15px;
     }
- 
+    .cover-wrap{
+        max-width: 100%;
+    }
+    .cover-elem{
+        width: 4.2vw;
+        background: white;
+        height: 4.2vh;
+        will-change: opacity;
+        border: 1px solid transparent;
+        opacity: 0;
+    }
 }
