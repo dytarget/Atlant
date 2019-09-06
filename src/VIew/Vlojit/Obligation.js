@@ -1,0 +1,179 @@
+import React, { Component } from 'react';
+import {  MDBContainer, MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask } from "mdbreact";
+import {CSSTransition} from 'react-transition-group';
+import {Link} from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Navbar from '../NavbarFolder';
+import './index.css';
+import Consult from '../Form/Consult';
+import Footer from '../Footer';
+import 'chart.js';
+import Charts from '../Charts';
+
+
+
+export class Obligation extends Component {
+    constructor(){
+        super();
+        this.state={
+            isLoading:true,
+            activeclient:"defense",
+            activenum:1
+        };
+    }
+
+    
+    componentDidMount(){
+        window.scrollTo(0,0);
+        AOS.init({
+            duration : 300
+        });
+        setTimeout(() => this.setState({ isLoading: false }), 3000); 
+        setInterval(()=>{
+            let temp=this.state.activenum+1;
+            if (temp>3) {
+                temp=1;
+            }
+            this.setState({activenum:temp});
+        },5500);
+    }
+
+    render() {
+        var texts=[{
+            title:'Technology Select Sector',
+            description:'Структурный продукт на рост акций ETF XLK',
+            percentage:"31.32%",
+            color:"linear-gradient(45deg, rgb(248, 123, 49) 0%, rgb(251, 158, 16) 100%)"
+        },
+        {
+            title:'FedEx',
+            description:'Структурный продукт на рост акций FedEx',
+            percentage:"33.62%",
+            color:"linear-gradient(45deg, rgb(175, 56, 61) 0%, rgb(206, 34, 41) 100%)"
+
+        },
+        {
+            title:'Visa Inc',
+            description:'Структурный продукт на рост акций Visa',
+            percentage:"33.1%",
+            color:"linear-gradient(45deg, rgb(32, 135, 205) 0%, rgb(5, 148, 211) 100%)"
+        }
+    ]
+        return (
+            <div>
+                <header className="headerPrivate">
+                    <div className="allhead">
+                <Navbar/>      
+                <MDBContainer>
+                    <MDBCarousel
+                        activeItem={1}
+                        length={1}
+                        showControls={false}
+                        showIndicators={false}
+                        className="z-depth-1"
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
+                    >
+                        <MDBCarouselInner>
+                        <MDBCarouselItem className="car-item" itemId="1">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src={require('../../img/savings-440782_1920.jpg')}
+                                alt="First slide"
+                            />
+                            <MDBMask overlay="black-strong"  />
+                            </MDBView>
+                            <MDBCarouselCaption className="texts-car">
+                                <span className="titlecarousel">Облигации</span>
+                            </MDBCarouselCaption>
+                        </MDBCarouselItem>
+                        </MDBCarouselInner>
+                    </MDBCarousel>
+                    </MDBContainer>
+                    </div>
+                </header>
+                <section className="sectionVilojit">
+                    <div className="pathroute"><div><Link to="/corporative"><span> Корпоратвный инвестор </span></Link>/<Link to="/corporative/3"><span> Методы защиты капитала </span></Link>/<span className="active"> Облигации </span></div></div>
+                    <hr/>
+                        <div className="etics-wrap">
+                            <div className="etics-elem">
+                                <div className="etcis-info">
+                                    <div className="etics-title">В приоритете – короткие бумаги (до 3 лет).</div>
+                                    <div className="etics-text">
+                                    Длинные облигации, как правило, более
+чувствительны к любым изменениям на рынке. Желательно привязывать дюрацию к своему
+горизонту инвестирования. Бумаги с плавающей ставкой в целом более защищены от изменений
+в политике ЦБ и ФРС. Евробонды номинированы в твердой валюте и часто в кризис повышают
+купонную доходность. Однако волатильность не позволяет в полной мере относить их к защитным
+активам. Кредитный рейтинг эмитентов облигаций – не ниже BB- . Долговая нагрузка не должна
+быть высокой. Проверяем по финансовой отчетности эмитентов. Низколиквидные облигации, в
+том числе муниципальные, во время кризиса становятся более рискованными, чем обычно. В
+портфеле можно держать только бумаги богатых субъектов (нефтегазовые регионы). То же
+относится к большинству корпоративных облигаций. Эмитент должен либо иметь валютную
+выручку, либо стабильный cash flow. Примеры: нефтегазовый сектор, телекомы, горно-рудная
+отрасль. Металлурги более уязвимы, поскольку спрос и цена на металл падают в первую очередь.</div>
+                                </div>
+                               <div className="etcis-image-wrap">
+                                   <img src={require('../../img/architecture-2175925_1920.jpg')} alt="" className="etics-image"/>
+                               </div>
+                            </div>
+                            
+
+                            <div className="etics-elem">
+                               <div className="etcis-image-wrap">
+                                   <img src={require('../../img/hands-1926414_1920.jpg')} alt="" className="etics-image"/>
+                               </div>
+                               <div className="etcis-info">
+                                    <div className="etics-title">Бумаги с наивысшей степенью защищенности называют безрисковыми.</div>
+                                    <div className="etics-text"> 
+                                    К ним обычно относят
+американские казначейские облигации. Это самый популярный и ликвидный защитный актив в
+мире. Несмотря на огромный госдолг, переваливший за $21 трлн, инвесторы продолжают
+перекладываться в трежерис при любом негативе на рынках. Гарантируются они статусом доллара
+как мировой валюты, мощью крупнейшей экономики планеты и высоким уровнем доверия к
+обязательствам правительства США. Инвесторы учитывают тот факт, что во времена глобальных
+потрясений американская экономика выглядит сильнее других, даже если сам кризис начался в
+США. Дополнительную ценность облигациям придает их растущая доходность. Недостатком
+является ограниченная доступность для неквалифицированных инвесторов.</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                        <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
+                        <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
+                    
+                        <div style={{justifyContent:"center"}} className="nav-element-dp">
+                                <Link to="/investing/individual"> 
+                                    <div style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="left-dp-elem"> 
+                                    <span>Индивидуальный торговый счет</span> 
+                                </div></Link>
+                                                
+                                <Link to="/trading/download-platform"> 
+                                    <div style={{backgroundImage:"url("+require('../../img/laptop-computer-1245981_1920.jpg')+")"}}  className="left-dp-elem">
+                                    <span>Программное обеспечение</span>
+                                </div></Link>
+
+                                <Link to="/trading/your-financial-analyst"> 
+                                    <div style={{backgroundImage:"url("+require('../../img/office-3126597_1920.jpg')+")"}}  className="left-dp-elem">
+                                    <span>Ваш финансовый аналитик</span>
+                                </div></Link>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div style={{position:"relative",marginTop:30}}  >
+                        <div><h2 className="client-title">Заявка на консультацию</h2></div>
+                        <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
+                        <Consult/>
+                    </div>
+                        <hr/>
+                        <div className="pathroute"><div><Link to="/corporative"><span> Корпоратвный инвестор </span></Link>/<Link to="/corporative/3"><span> Методы защиты капитала </span></Link>/<span className="active"> Облигации </span></div></div>
+                </section>
+                <Footer/>
+            </div>
+        )
+    }
+}
+
+export default Obligation;

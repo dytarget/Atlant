@@ -98,14 +98,14 @@ export class FindIdea extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/alvaro-reyes-4eTnTQle0Ks-unsplash.jpg')}
+                                src={require('../../img/copybook.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
@@ -167,7 +167,8 @@ export class FindIdea extends Component {
                     <div>
                         {/* <Charts/> */}
                     </div>
-                    <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                    <hr/>
+                    <div style={{position:"relative",textAlign:"center",marginTop:20}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
                     
@@ -179,7 +180,7 @@ export class FindIdea extends Component {
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -188,13 +189,14 @@ export class FindIdea extends Component {
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  data-aos="zoom-in" >
+                    <hr/>
+                    <div style={{position:"relative",marginTop:10}}  data-aos="zoom-in" >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
-                    <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Найти идею </span></div></div>
+                    <hr style={{marginTop:10}}/>
+                    <div  className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Найти идею </span></div></div>
                 </section>
                 <Footer/>
             </div>

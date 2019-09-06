@@ -23,19 +23,18 @@
   font-size: 1.2rem;
 }
 .abt-button{
-    width: 13%;
-    padding:15px 0;
-    float: right;
-    z-index: 1000;
-    position: relative;
-    margin-top: calc(100vh - (45px + 1.5rem));
-    opacity: 1;
-    color: white;
-    font-size: 1.5rem;
-    outline: none;
-    font-weight: bolder;
-    border: 0px;
-    cursor: pointer;
+  width: 13%;
+  padding:15px 0;
+  float: right;
+  margin-top: calc(100vh - (45px + 1.5rem));
+  opacity: 1;
+  color: white;
+  position: relative;
+  z-index: 10000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 0px;
+  cursor: pointer;
 }
 
 .abt-button:focus{
@@ -51,8 +50,10 @@
 
 @media screen and (max-width:500px){
   .abt-button{
-    width: 40%;
+    position: fixed;
+    width: 100% !important;
   }
+
   .numbers{
     font-size: 1rem;
     margin-top:20% !important;
@@ -81,6 +82,7 @@
 
 .numbers div{
     opacity: 0.5;
+    font-size: 1.2rem;
 }
 .numbers div::before {
     content: "-";
@@ -166,6 +168,67 @@
     transition: opacity 100ms,transform 1000ms;
 }
 
+.background-elem{
+  background-size: cover;
+  width:100vw;
+  max-width: 100%;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #1c1c1c;
+  margin-bottom: 15px;
+  padding: 11vh 80px;
+}
+
+
+.background-title{
+  font-weight: bold;
+  font-size: 4rem;
+}
+.background-text{
+  font-weight: bolder;
+  font-size: 1.2rem;
+  margin: 30px 0;
+}
+
+.background-button{
+  cursor: pointer;
+  background: black;
+  color: white;
+  border: 0px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  transition: 0.2s ease;
+}
+
+
+
+.background-elem-video{
+    position:relative;
+    display:inline-block;
+    width:100vw;
+    max-width: 100%;
+    height: 90vh;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+}
+
+.video-background{
+    max-width: 100%;
+    width: 100vw; height: 90vh; 
+    z-index: -1;
+}
+
+.video-background video{
+  width: 100vw;
+  max-width: 100%;
+}
+
+.video-content{
+  position: absolute;
+  top: 0;
+  padding: 15vh 80px;
+}
 
 
 @media screen and (max-width:1100px){
@@ -189,5 +252,21 @@
 @media screen and (max-width:450px){
     .text{
         font-size: 1.45rem;
+    }
+    .background-elem{
+      padding: 5vh 10px;
+      text-align: center !important;
+    }
+    .background-title{
+      font-size: 1.5rem;
+      text-align: center !important;
+    }
+    .background-text{
+      font-size:1rem;
+      margin: 10px 0;
+      text-align: center !important;
+    }
+    .background-button{
+      font-size: 0.7rem;
     }
 }

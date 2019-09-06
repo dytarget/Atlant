@@ -410,7 +410,7 @@
 
 
 .allhead{
-    height: 100vh;
+    height: 75vh;
 }
 
 .car-item{
@@ -445,13 +445,17 @@
 }
 
 .btncarousel{
+    cursor: pointer;
+    margin: 20px auto !important;
+    width: 300px;
+    text-align: center;
+    padding: 15px;
     outline: none;
     font-size: 1.1rem;
     font-weight: bolder;
     background-image: linear-gradient(180deg,#6b3354 0,#3c4673 100%);
     color: white;
     border: 0px;
-    padding: 13px 44px;
     border-radius: 200px;
 }
 .btncarousel:focus{
@@ -789,9 +793,6 @@
     transition: opacity 500ms;
 }
 
-hr{
-    margin: 50px 0 10px 0;
-}
 
 .modalanim2-enter{
     opacity: 0;
@@ -881,7 +882,9 @@ hr{
     .why-elem{
         margin-bottom: 20px;
     }
-
+    .invis-modal-elem{
+        display: none;
+    }
     .modal-left{
         width: 45vw;
         font-size:0.9rem;
@@ -900,6 +903,7 @@ hr{
     }
     .modal-element{
         width:100vw;
+        max-width: 100%;
         white-space: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
@@ -908,13 +912,16 @@ hr{
         -webkit-overflow-scrolling: touch;
     }
     .anotherdiv{
-        display: none;
+    }
+    .infopages-elem:first-child{
+        margin-left:700px;
     }
     .cl-mod-par{
         margin-top: 0px !important;
     }
     .infopages-elem{
-        margin: 40px 0;
+        margin: 40px 170px;
+        width: 85vw;
     }
     .infopages-elem:hover .infopages-elem-cover{
         box-shadow:none;

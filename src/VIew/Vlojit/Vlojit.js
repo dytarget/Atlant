@@ -47,20 +47,20 @@ export class Vlojit extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/alvaro-reyes-4eTnTQle0Ks-unsplash.jpg')}
+                                src={require('../../img/architecture-1868667_1920.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
                             </MDBView>
                             <MDBCarouselCaption className="texts-car">
-                                <span className="titlecarousel">Вложить и приумножить</span>
+                                <span className="titlecarousel">Инвестировать и приумножить</span>
                                 <div className="pcarousel">Ваш капитал под управлением профессионалов</div>
                             </MDBCarouselCaption>
                         </MDBCarouselItem>
@@ -70,7 +70,7 @@ export class Vlojit extends Component {
                     </div>
                 </header>
                 <section className="sectionVilojit">
-                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span className="active"> Вложить </span></Link></div></div>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span className="active"> Инвестировать </span></Link></div></div>
                     <hr/>
 
                     <div  className="ourClient">
@@ -204,7 +204,7 @@ export class Vlojit extends Component {
                     <div ><h2 className="client-title">Вы решаете, как работают ваши деньги</h2></div>
                     <div  style={{marginBottom:60}}  className="cl-mod-par">
                     В последнее время банковские вклады приносят всё меньший доход, поэтому всё большую популярность завоёвывает инвестирование на финансовых рынках. Мы предлагаем различные инвестиционные решения: под разные цели, сроки и суммы — не требующие от вас опыта инвестирования и времени для управления.</div>
-                    <div   className="modal-element anotherdiv" style={{justifyContent:"space-around"}}>
+                    <div  className="modal-element anotherdiv invis-modal-elem" style={{justifyContent:"space-around"}}>
                         <div className="infopages-elem">
                             <div className="infopages-elem-main">
                                 <img src={require("../../img/understand.svg")} alt=""/>
@@ -228,12 +228,7 @@ export class Vlojit extends Component {
                             </div>
                         </div>
                     </div>
-                    <div  style={{marginTop:80}} className="cl-mod-par" >
-                    Идеальное решение для тех, кто ищет <br/>
-                    альтернативу банковскому вкладу
-                    </div>
-
-                    <hr/>
+                    <hr style={{marginTop:50}}/>
                     <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found"  >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
@@ -246,7 +241,7 @@ export class Vlojit extends Component {
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -255,13 +250,14 @@ export class Vlojit extends Component {
                                 </div></Link>
                         </div>
                     </div>
+                    <hr/>
                     <div style={{position:"relative",marginTop:50}} >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
                     <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Вложить</span></div></div>
+                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Инвестировать</span></div></div>
                 </section>
                 <Footer/>
             </div>

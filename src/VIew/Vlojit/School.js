@@ -43,14 +43,14 @@ export class School extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')}
+                                src={require('../../img/typewriter-407695_1920.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
@@ -66,37 +66,12 @@ export class School extends Component {
                     </div>
                 </header>
                 <section className="sectionVilojit">
-                    <div className="numbers-all-mobile-invisible">
-                    <div data-aos="zoom-in" ><h2 className="client-title">Вы решаете, что
-вам подходит</h2></div>
-                    <div data-aos="zoom-in" style={{marginBottom:60}}  className="cl-mod-par">Шаг за шагом, от простого к сложному, мы научим вас инвестировать
-на финансовых рынках. Узнайте, как стать совладельцем крупнейших мировых
-компаний или зарабатывать на колебаниях курсов валют. Выбирайте любой
-формат занятий — очный, дистанционный или индивидуальный.
-                    </div>
-                    <div data-aos="zoom-in"  className="modal-element anotherdiv" style={{justifyContent:"space-around"}}>
-                        <div className="infopages-elem">
-                            <div className="infopages-elem-main">
-                                <img src={require("../../img/understand.svg")} alt=""/>
-                                <p>Индивидуальное обучение</p>
-                            </div>
-                            <div className="infopages-elem-cover">
-                                <p>Индивидуальное обучение</p>
-                                <div>Ваш план обучения, удобное для занятий время и практические домашние задания</div>
-                            </div>
-                        </div>
-                     
-                    </div>
-                    </div>
-                    <hr style={{margin:'40px 0'}}/>                 
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Научиться</span></div></div>
+                    <hr/>
+                  
                    
                     <div data-aos="zoom-in"  className="ourClient">
-                        <h2 className="client-title">Выберите формат обучения</h2>
-                        <div  style={{marginBottom:40}} className="cl-mod-par" >
-                        Очное обучение
-                        </div>
-
-
+                        <h2 className="client-title">Обучение</h2>
                          <div >
                              
                                     <div className="car-anal">
@@ -104,7 +79,7 @@ export class School extends Component {
                                             <div className="afterhas"></div>
                                             <p>Индивидуальное обучение</p>
                                             <div>Для тех кто хочет стать проффесионалом</div>
-                                            <button className="hovered-button">Посмотреть</button>
+                                            <Link to="/learn/individual-learn"><button className="hovered-button">Посмотреть</button></Link>
                                         </div>  
                                         <div className="car-anal-elem">
                                             <ul>
@@ -117,18 +92,18 @@ export class School extends Component {
                          </div>
                     </div> 
                     <hr style={{margin:'40px 0px'}}/>
-                    <div><h2 className="client-title">Пошаговая инструкция</h2></div>
+                    <div><h2 className="client-title">Что мы предлогаем</h2></div>
                         <div className="best-broker lolita">
                             <div className="best-broker-elem">
-                                <img src={require('../../img/dollar.png')} alt=""/>
+                                <img src={require('../../img/worldwide.png')} alt=""/>
                                 <span>В удобное
- время!</span>
+ время</span>
                                 <div className="cl-mod-par">Вы сами управляете
  своим расписанием</div>
 
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/savings.png')} alt=""/>
+                                <img src={require('../../img/book (1).png')} alt=""/>
                                 <span>Полезная
 информация</span>                                <div className="cl-mod-par">Вы будете получать
  только необходимое,
@@ -138,7 +113,7 @@ export class School extends Component {
                            
                            
                             <div className="best-broker-elem">
-                                <img src={require('../../img/id-card.png')} alt=""/>
+                                <img src={require('../../img/building.png')} alt=""/>
                                 <span>Команда
 профессионалов
 </span>
@@ -148,6 +123,7 @@ export class School extends Component {
 
                             </div>
                         </div>
+                        <hr/>
                         <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
@@ -159,21 +135,24 @@ export class School extends Component {
                                 </div></Link>
                                                 
                                 <Link to="/trading/download-platform"> 
-                                    <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <div style={{backgroundImage:"url("+require('../../img/laptop-computer-1245981_1920.jpg')+")"}}  className="left-dp-elem">
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
-                                    <div style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}}  className="left-dp-elem">
+                                    <div style={{backgroundImage:"url("+require('../../img/office-3126597_1920.jpg')+")"}}  className="left-dp-elem">
                                     <span>Ваш финансовый аналитик</span>
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  >
+                    <hr/>
+                    <div style={{position:"relative",marginTop:30}}  >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
+                    <hr style={{marginTop:50}}/>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<span className="active"> Научиться </span></div></div>
                 </section>
                 <Footer/>
             </div>

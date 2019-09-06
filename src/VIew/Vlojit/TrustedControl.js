@@ -43,21 +43,21 @@ export class TrustedControl extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')}
+                                src={require('../../img/office-932926_1920.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
                             </MDBView>
                             <MDBCarouselCaption className="texts-car analitic-car">
                                 <span className="titlecarousel">Доверительное управление</span>
-                                <div className="pcarousel">Доверительное управление активами предоставляет Вам возможность повысить свой капитал, затрачивая на это минимальное количество времени и усилий</div>
+                                <div className="pcarousel">Доверительное управление активами предоставляет Вам возможность увеличить свой капитал, затрачивая на это минимальное количество времени и усилий</div>
                             </MDBCarouselCaption>
                         </MDBCarouselItem>
                         </MDBCarouselInner>
@@ -66,24 +66,18 @@ export class TrustedControl extends Component {
                     </div>
                 </header>
                 <section className="sectionVilojit">
-                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Торговать </span></Link>/<span className="active"> Доверительное управление</span></div></div>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Инвестировать </span></Link>/<span className="active"> Доверительное управление</span></div></div>
                     <hr/>
                     <div className="numbers-all-mobile-invisible">
                     <div data-aos="zoom-in" ><h2 className="client-title">Доверительное управление</h2></div>
                     <div data-aos="zoom-in" style={{marginBottom:60}}  className="cl-mod-par">
-                    Доверительное управление активами предоставляет Вам возможность повысить свой капитал,
-затрачивая на это минимальное количество времени и усилий. Для этого наши профессиональные
-управляющие – специалисты инвестиционного рынка займутся этим. Услуги доверительного
-управления дают возможность инвестору принимать решение. Например, инвестор может
-определять желаемый уровень диверсификации портфеля, ожидаемую доходность и его
-защищенность
-                    </div>
+                    Доверительное управление активами предоставляет Вам возможность увеличить свой капитал, затрачивая на это минимальное количество времени и усилий. Для этого наши профессиональные управляющие – специалисты инвестиционного рынка займутся этим. Услуги доверительного управления дают возможность инвестору принимать решение. Например, инвестор может определять желаемый уровень диверсификации портфеля, ожидаемую доходность и его защищенность                    </div>
                     <div data-aos="zoom-in">
                         <div   className="modal-element" style={{justifyContent:"space-around"}}>
                             <div onMouseEnter={()=>{this.setState({activenum:1})}} className={this.state.activenum===1 ? ("number-wrappers active-num"):("number-wrappers")}>
                                 <div className="number-elements index1">
                                     <div className="number-index ">01</div>
-                                    <div className="number-tex">Персональный график выплаты дивидендов.</div>
+                                    <div className="number-tex">Персональный график выплаты дивидендов</div>
                                 </div>
                             </div>
                             <div onMouseEnter={()=>{this.setState({activenum:2})}}  className={this.state.activenum===2 ? ("number-wrappers active-num"):("number-wrappers")}>
@@ -95,7 +89,7 @@ export class TrustedControl extends Component {
                             <div onMouseEnter={()=>{this.setState({activenum:3})}}  className={this.state.activenum===3 ? ("number-wrappers active-num"):("number-wrappers")}>
                                 <div className="number-elements index3">
                                     <div className="number-index">03</div>
-                                    <div className="number-tex">Индивидуальные пожелания инвестора.</div>
+                                    <div className="number-tex">Индивидуальные пожелания инвестора</div>
                                 </div>
                             </div>
                         </div>
@@ -104,25 +98,23 @@ export class TrustedControl extends Component {
                     <hr/>                 
                     <div data-aos="zoom-in"  ><h2 className="client-title">Доверяя активы профессионалам</h2></div>
                     <div data-aos="zoom-in" style={{marginBottom:60}}  className="cl-mod-par">
-                    Если вы готовы поручить профессионалу управление вашим капиталом и принятие инвестиционных решений – этот сервис для вас. Всё, что вам нужно – выбрать стратегию и заключить договор доверительного управления. Остальную работу сделают профессионалы
+                    Если вы готовы поручить профессионалу управление вашим капиталом и принятие инвестиционных решений – этот сервис для вас. Всё, что вам нужно – выбрать стратегию и заключить договор доверительного управления. Остальную работу сделают профессионалы.
                     </div>
                     <div data-aos="zoom-in"  className="modal-element anotherdiv" style={{justifyContent:"space-around"}}>
-                        <div className="infopages-elem">
+                    <Link to="/investing/structural-products"><div className="infopages-elem">
                             <div className="infopages-elem-main">
                                 <img src={require("../../img/understand.svg")} alt=""/>
                                 <p>Готовые решения</p>
-                                <div>Для всех типов инвесторов</div>
                             </div>
                             <div className="infopages-elem-cover">
                                 <p>Готовые решения</p>
-                                <div>Вы можете выбрать одну из готовых и оптимально составленных стратегий. Они рассчитаны на разные стили управления — от консервативного до агрессивного.</div>
+                                <div>Вы можете выбрать одну из готовых и оптимально составленных стратегий. Они рассчитаны на разные стили управления – от консервативного до агрессивного.</div>
                             </div>
-                        </div>
+                        </div></Link>
                         <div className="infopages-elem">
                             <div className="infopages-elem-main">
                                 <img src={require("../../img/fixed-period.svg")} alt=""/>
                                 <p>Эффективное управление</p>
-                                <div>Опытными профессионалами</div>
                             </div>
                             <div className="infopages-elem-cover">
                                 <p>Эффективное управление</p>
@@ -132,12 +124,11 @@ export class TrustedControl extends Component {
                         <div  className="infopages-elem">
                             <div className="infopages-elem-main">
                                 <img src={require("../../img/complite.svg")} alt=""/>
-                                <p>Минимальные затраты</p>
-                                <div>В деньнах и во времени</div>
+                                <p>Участие</p>
                             </div>
                             <div className="infopages-elem-cover">
-                                <p>Минимальные затраты</p>
-                                <div>Первоначальный взнос — от 300 000 рублей. Вам нужно только выбрать подходящую для вас стратегию, остальную работу сделают портфельные управляющие.</div>
+                                <p>Участие</p>
+                                <div>Вам необходимо выбрать только стратегию, срок и комфортный капитал для инвестиций. Всю остальную работу сделают портфельные управляющие.</div>
                             </div>
                         </div>
                     </div>
@@ -228,45 +219,8 @@ export class TrustedControl extends Component {
                                     </div>
                          </div>
                     </div> */}
-                    <div>
-                        <div><h2 className="client-title">Условия работы</h2></div>
-                        <div className="best-broker lolita">
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/dollar.png')} alt=""/>
-                                <span>Открытие счёта</span>
-                                <div className="cl-mod-par">Бесплатно</div>
-
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/savings.png')} alt=""/>
-                                <span>Минимальный капитал</span>
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/exchange.png')} alt=""/>
-                                <span>Максимальный капитал </span>
-                                <div className="cl-mod-par">Не ограничен</div>
-
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/atm.png')} alt=""/>
-                                <span>На кого ориентирован</span>
-                                <div className="cl-mod-par">Инвесторы без опыта работы на финансовых рынках</div>
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/id-card.png')} alt=""/>
-                                <span>Инвестиционный горизонт</span>
-                                <div className="cl-mod-par">От 1 года</div>
-
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/commerce.png')} alt=""/>
-                                <span>Потенциальный доход</span>
-                                <div className="cl-mod-par">Не ограничен</div>
-                            </div>
-                        </div>
-                        <Link to="/aboutus"><div style={{margin:"0 auto",textAlign:"center",width:"300px"}} className="btncarousel">Подробнее о компании</div></Link>
-                    </div>
-                    <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                  
+                    <div style={{position:"relative",textAlign:"center",marginTop:10}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
                     
@@ -278,7 +232,7 @@ export class TrustedControl extends Component {
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -287,13 +241,14 @@ export class TrustedControl extends Component {
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  >
+                    <hr/>
+                    <div style={{position:"relative",marginTop:10}}  >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
-                    <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Вложить </span></Link>/<span className="active"> Доверительное управление</span></div></div>
+                    <hr />
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Инвестировать </span></Link>/<span className="active"> Доверительное управление</span></div></div>
                 </section>
                 <Footer/>
             </div>

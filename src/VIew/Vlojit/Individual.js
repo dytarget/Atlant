@@ -43,14 +43,14 @@ export class Individual extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')}
+                                src={require('../../img/macbook.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
@@ -66,7 +66,7 @@ export class Individual extends Component {
                     </div>
                 </header>
                 <section className="sectionVilojit">
-                <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Вложить </span></Link>/<span className="active"> Индивидуальный торговый счет</span></div></div>
+                <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Инвестировать </span></Link>/<span className="active"> Индивидуальный торговый счет</span></div></div>
                     <hr/>
                     <div className="numbers-all-mobile-invisible">
                     <div data-aos="zoom-in" ><h2 className="client-title">Индивидуальный торговый счет</h2></div>
@@ -78,26 +78,31 @@ export class Individual extends Component {
                             <div onMouseEnter={()=>{this.setState({activenum:1})}} className={this.state.activenum===1 ? ("number-wrappers active-num"):("number-wrappers")}>
                                 <div className="number-elements index1">
                                     <div className="number-index ">01</div>
-                                    <div className="number-tex">Не просто предоставляет Вам торговый счет</div>
+                                    <div className="number-tex">Открытие счета в одном из швейцарских банков</div>
                                 </div>
                             </div>
                             <div onMouseEnter={()=>{this.setState({activenum:2})}}  className={this.state.activenum===2 ? ("number-wrappers active-num"):("number-wrappers")}>
                                 <div className="number-elements index2">
                                     <div className="number-index">02</div>
-                                    <div className="number-tex">Что дает Вам этот счет</div>
+                                    <div className="number-tex">Преимущества инвестиционного счета</div>
                                 </div>
                             </div>
                             <div onMouseEnter={()=>{this.setState({activenum:3})}}  className={this.state.activenum===3 ? ("number-wrappers active-num"):("number-wrappers")}>
                                 <div className="number-elements index3">
                                     <div className="number-index">03</div>
-                                    <div className="number-tex">Открыть счет, это просто!</div>
+                                    <div className="number-tex">Открыть счет, это просто</div>
                                 </div>
                             </div>
                         </div>
                         <div className={"number-desc-wrap"+this.state.activenum}>
-                            {this.state.activenum===1 && <div className="number-desc desk1">Atlant Finance не просто предоставляет Вам торговый счет, мы дадим Вам полный ассортимент финансовых инструментов для успешной торговли. Наши торговые счета разработаны для инвесторов с различным уровнем опыта и навыков – от новичков до профессиональных трейдеров.</div>}
-                            {this.state.activenum===2 && <div className="number-desc desk2">Это ваш индивидуальный счет в инвестиционном банке, позволяющий пользоваться брокерским обслуживанием и совершать все доступные финансовые операции.</div>}
-                            {this.state.activenum===3 &&<div className="number-desc desk3">Достаточно пройти регистрацию, и финансовый отдел откроет для Вас счет в течение 30 минут.</div>}
+                            {this.state.activenum===1 && <div className="number-desc desk1">Atlant Finance не просто предоставляет Вам торговый счет, мы дадим Вам полный
+ассортимент финансовых инструментов для успешной торговли. Наши торговые счета
+разработаны для инвесторов с различным уровнем опыта и навыков – от новичков до
+профессиональных трейдеров.</div>}
+                            {this.state.activenum===2 && <div className="number-desc desk2">Это ваш индивидуальный счет в инвестиционном банке, позволяющий пользоваться
+брокерским обслуживанием и совершать все доступные финансовые операции.</div>}
+                            {this.state.activenum===3 &&<div className="number-desc desk3">Достаточно пройти регистрацию, и финансовый отдел откроет для Вас счет в течение 30
+минут.</div>}
                         </div>
                     </div>
                     </div>
@@ -189,48 +194,49 @@ export class Individual extends Component {
                          </div>
                     </div> */}
                     <div>
-                        <div><h2 className="client-title">Что полезно знать об ИИС?</h2></div>
+                        <div><h2 className="client-title">Что полезно знать об Инвестиционном счете?</h2></div>
                         <div className="best-broker lolita">
                             <div className="best-broker-elem">
-                                <img src={require('../../img/dollar.png')} alt=""/>
-                                <span>Вы можете открывать <br/> несколько счетов.</span>
+                                <img src={require('../../img/online-banking.png')} alt=""/>
+                                <span>Возможность открытия <br/> нескольких счетов</span>
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/savings.png')} alt=""/>
+                                <img src={require('../../img/money.png')} alt=""/>
                                 <span>Вы можете открывать <br/> счета в различных валютах, <br/> создавая валютную корзину</span>
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/exchange.png')} alt=""/>
-                                <span>Вы можете переводить <br/> денежные средства в любой банк <br/> имя, где у Вас имеется собственный счет!</span>
+                                <img src={require('../../img/bank.png')} alt=""/>
+                                <span>Вы можете переводить <br/> денежные средства в любой банк <br/> имя, где у Вас имеется собственный счет</span>
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/atm.png')} alt=""/>
-                                <span>Пополнять счет можно <br/> в любое время!</span>
+                                <img src={require('../../img/payment-method.png')} alt=""/>
+                                <span>Пополнять счет можно <br/> в любое время</span>
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/id-card.png')} alt=""/>
-                                <span>У Вас будет собственный <br/> инвестиционный консультант!</span>
+                                <img src={require('../../img/cheque.png')} alt=""/>
+                                <span>У Вас будет собственный <br/> инвестиционный консультант</span>
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/commerce.png')} alt=""/>
-                                <span>Отсутствие комиссий за пополнение!</span>
+                                <img src={require('../../img/coin.png')} alt=""/>
+                                <span>Отсутствие комиссий за пополнение</span>
                             </div>
                         </div>
-                        <Link to="/aboutus"><div style={{margin:"0 auto",textAlign:"center",width:"300px"}} className="btncarousel">Подробнее о компании</div></Link>
+                        <Link to="/aboutus"><div className="btncarousel">Подробнее о компании</div></Link>
                     </div>
-                    <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                    <hr/>
+                    <div style={{position:"relative",textAlign:"center",marginTop:10}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
                     
                         <div style={{justifyContent:"center"}} className="nav-element-dp">
-                                <Link to="/investing/individual"> 
+                                <Link to="/investing/structural-products"> 
                                     <div style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="left-dp-elem"> 
-                                    <span>Индивидуальный торговый счет</span> 
+                                    <span>Структурные продукты</span> 
                                 </div></Link>
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -239,13 +245,14 @@ export class Individual extends Component {
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  >
+                    <hr/>
+                    <div style={{position:"relative"}}  >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
-                    <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Вложить </span></Link>/<span className="active"> Индивидуальный торговый счет</span></div></div>
+                    <hr style={{marginTop:20}}/>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Инвестировать </span></Link>/<span className="active"> Индивидуальный торговый счет</span></div></div>
                 </section>
                 <Footer/>
             </div>

@@ -8,13 +8,16 @@
 
 .infopages-elem-main{
     box-sizing: border-box;
-    min-width: 330px;
+    width: 250px;
     min-height: 300px;
     text-align: center;
     margin-right: 20px;
     position: absolute;
-    z-index: 20;
+    z-index: 10;
     background: white;
+}
+.infopages-elem-main img{
+    width: 200px;
 }
 .infopages-elem:hover .infopages-elem-main{
     opacity: 0;
@@ -27,9 +30,10 @@
     border: 1px solid #cfd8dc;
     border-radius: 12px;
     background: white;
-    min-width: 330px;
+    width:250px;
+    z-index: 100;
     min-height: 300px;
-    padding: 40px 15px;
+    padding: 20px 0px;
     opacity: 1;
 }
 
@@ -39,13 +43,10 @@
 }
 .infopages-elem-cover div{
     color: #7f888d;
+    max-width: 250px;
     text-align: center;
 }
 
-.infopages-elem:nth-child(2){
-    margin-left: -100px;
-    margin-right: -100px;
-}
 
 
 .infopages-elem p{
@@ -66,7 +67,8 @@
 }
 
 .pathroute{
-    padding: 25px 0 5px 10vw;
+    margin: 20px;
+    padding-left: 10vw;
     font-size: 0.88rem;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #7f888d;
@@ -127,7 +129,7 @@
 }
 .number-tex{
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .number-desc-wrap1{
     padding: 45px 300px;
@@ -333,6 +335,45 @@
     display: none;
 }
 
+.etics-wrap{
+    width: 90vw;
+    margin: 20px auto;
+    padding: 20px 80px;
+    box-sizing: border-box;
+}
+.etics-text{
+    width: 40vw;
+    padding: 0px 30px;
+    font-size: 0.9rem;
+}
+.etics-title{
+    padding:0px 30px;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.etics-info{
+    padding: 50px !important;
+    box-sizing: border-box;
+}
+.etics-elem{
+    display: flex;
+    margin: 70px 0px;
+    padding: 25px;
+    border-radius: 12px;
+    -webkit-box-shadow: -2px 6px 42px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 6px 42px 0px rgba(0,0,0,0.75);    
+    box-shadow: -2px 6px 42px 0px rgba(0,0,0,0.75);
+}
+
+.etics-image{
+    margin-top:20px;
+    margin-left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+
 @media screen and (max-width:600px){
    .idea{
        display: none;
@@ -340,6 +381,33 @@
    .idea-wrap-mobile{
        display: initial;
    }
+   .etics-elem{
+       flex-direction: column;
+       padding: 10px;
+   }
+   .etics-text{
+       width: 90vw;
+   }
+   .etics-image{
+       width: 75vw;
+   }
+   .charts{
+       max-width: 90vw;
+       margin-bottom: 200px;
+   }
+
+   .charts2{
+    max-width: 90vw;
+    margin-bottom: 400px !important;
+}
+
+
+.etics-wrap{
+    width: 95vw;
+    margin: 20px auto;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
    .idea-wrap-mobile button{
         border-radius: 25px;
         background: transparent;
@@ -377,4 +445,7 @@
        overflow-y: unset;
    }
 
+}
+
+.sectionVilojit{
 }

@@ -2,9 +2,9 @@ import React, { Component} from 'react';
 import './AboutUs.css';
 import ReactPageScroller from "react-page-scroller";
 import {CSSTransition} from 'react-transition-group';
+import Footer from '../Footer';
 import {Link} from 'react-router-dom';
-import Forms from '../Form/index';
-import  Footer from '../Footer/index';
+import Forms from '../Form';
 
 
 
@@ -24,7 +24,6 @@ export class Corporative extends Component {
     }
     
     componentDidMount() {
-        window.scrollTo(0,0);
         this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 1500); 
         if(this.props.match.params.page){
             if (this.props.match.params.page===1) {
@@ -52,6 +51,7 @@ export class Corporative extends Component {
     goBack=()=>{
         this.props.history.goBack();
     }
+    
     showContent=(which)=>{
         if (this.state.showContent) {
             this.setState({showContent:false})
@@ -60,97 +60,120 @@ export class Corporative extends Component {
             this.setState({showContent:which});
         }
     }
- 
     render() {
         var {showContent}=this.state;
         return (
                 <div style={{maxWidth:"100%",overflowX:"hidden",height:'100vh',maxHeight:"100vh"}}>
-                <ReactPageScroller style={{maxHeight:'100vh',overflowX:'hidden'}}  blockScrollUp={showContent}  blockScrollDown={showContent} ref={c => this.reactPageScroller = c} pageOnChange={(info)=>{console.log(info);this.setState({which:info})}}>
-                <div className="bottom-layer" >
+                <ReactPageScroller blockScrollUp={showContent}  blockScrollDown={showContent}ref={c => this.reactPageScroller = c} pageOnChange={(info)=>{console.log(info);this.setState({which:info})}}>
+                        <div className="bottom-layer" >
                                 {(showContent===false && this.state.which===1) &&
                                 <CSSTransition in={this.state.which===1 && !showContent}  timeout={2900} classNames="animtext">
                                     <h1 className="text">Оптимизация бизнес процессов</h1>
                                 </CSSTransition>
                                 }
                                 {(this.state.which===1 && !showContent )&&
-                                <> <div className="gb" onClick={this.goBack}>
-                                <h1>
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </h1></div>
+                                    <>
+                                    <div className="gb" onClick={this.goBack}>
+                                            <h1>
+                                                <i class="fas fa-arrow-circle-left"></i>
+                                            </h1></div>
                                     <div className="numbers">
                                         <div style={{color:"#812b47",opacity:"1"}}>01</div>
                                         <div onClick={()=>{this.goToPage(1)}}>02</div>
                                         <div onClick={()=>{this.goToPage(2)}}>03</div>
                                         <div onClick={()=>{this.goToPage(3)}}>04</div>
-                                        <div onClick={()=>{this.goToPage(4)}}>05</div>
-                                        <div onClick={()=>{this.goToPage(5)}}>06</div>
-                                    </div ></>
+                                        {/* <div onClick={()=>{this.goToPage(4)}}>05</div> */}
+                                    </div >
+                                    </>
                                 }   <div style={showContent===1 ? {position:'absolute',width:'100%',top:0,zIndex:10000}:null}>
                                         <CSSTransition in={this.state.which===1}  timeout={2900} classNames="animbutton">
                                             <button onClick={()=>{this.showContent(1)}} className="abt-button" style={showContent===1 ? {width:'100%',backgroundColor:"#812b47",marginTop:0}:{backgroundColor:"#812b47"}}>{showContent===1 ? ('Закрыть'):('Читать')}</button>
                                         </CSSTransition>
                                         {showContent===1 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Оптимизация бизнес процессов </span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Оптимизация бизнес процессов</h2></div>
-                                                <div className="cl-mod-par">Совершенствование существующих бизнес-процессов наших корпоративных клиентов такими
-методами,</div>                  
-                                                <div className="best-broker lolita">
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/book.png')} alt=""/>
-                                                        <span>SWOT-анализ</span>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/birdhouse.png')} alt=""/>
-                                                        <span>Бенчмаркинг</span>       
-                                                    </div>
-                                                
-                                                
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/planet.png')} alt=""/>
-                                                        <span>Анализ проблем процесса</span>
-                                                    </div>
-                                                </div>
-                                                <hr/>
-                                                <div className="cl-mod-par">Оптимизации, как правило, подлежат ключевые бизнес-процессы, так как оптимизация именно
-этих процессов дает наибольший эффект. Нашей задачей в этом деле является работа над
-усовершенствованием действий, осуществляемых в определенной последовательности.</div>                  
-                                                <div className="best-broker lolita">
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/book.png')} alt=""/>
-                                                        <span>Увеличим контроль в отношении некоторых аспектов деятельности.</span>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/birdhouse.png')} alt=""/>
-                                                        <span>Оптимизируем временные и трудовые затраты.</span>       
-                                                    </div>
-                                                
-                                                
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/planet.png')} alt=""/>
-                                                        <span>Построим системы отчетных балансов.</span>
-                                                    </div>
 
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/planet.png')} alt=""/>
-                                                        <span>Рассчитаем аналитические коэффициентов.</span>
-                                                    </div>
 
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/planet.png')} alt=""/>
-                                                        <span>Вертикальный и горизонтальный анализ отчетности.</span>
-                                                    </div>
-                                                </div>
-                                                <hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>
-                                                <hr/>
-                                            <div className="pathroute"><div><Link><span>Корпоративный инвестор </span></Link>/<span className="active"> Оптимизация бизнес процессов </span></div></div>
+                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white', overflowX:'hidden',overflowY:'scroll'}} className="show-background-wrap">
+
+                                            <div style={{padding:'20vh 80px',textAlign:'center',backgroundImage:"url("+require('../../img/workplace-2303853_1920.jpg')+")"}}  className="background-elem">
+                                                <h1 className="background-title">Совершенствование <br/> существующих </h1>
+                                                <p  className="background-text">Бизнес-процессов наших корпоративных <br/> клиентов осуществляется следующими методами</p>
+                                                {/* <button className="background-button">Посмотреть</button> */}
                                             </div>
-                                            <Footer/>
-                                    </div>
+
+                                            <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/laptop-3076957_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">SWOT - анализ</h1>
+                                                <p className="background-text">SWOT-анализ - один из самых распространенных <br/> методов, оценивающих в комплексе внутренние <br/>и внешние факторы, влияющие на  <br/> развитие компании. Это анализ сильных <br/> и слабых сторон организации, а также возможностей <br/> и угроз со стороны внешней окружающей среды.</p>
+                                            </div>      
+
+                                            <div style={{textAlign:'left'}}  className="background-elem-video">
+                                                <div className="video-background">
+                                                    <video autoPlay loop muted src={require('../../img/Vietnam - 25171.mp4')}></video>
+                                                </div>
+                                                <div className="video-content">
+                                                    <h1  className="background-title">Бенчмаркинг</h1>
+                                                    <p className="background-text">Бенчмаркинг может рассматриваться как процесс, <br/> деятельность по долгосрочному обдумыванию <br/>стратегии предпринимательства, основывающиеся  <br/> на лучшем опыте партнеров и конкурентов на <br/>отраслевом, межотраслевом, национальном и межнациональном уровнях. </p>
+                                                </div>
+                                            </div>  
+
+                                            <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/laptop-3174729_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Анализ финансовой <br/> отчетности</h1>
+                                                <p className="background-text">Анализ финансовой отчетности — это процесс, <br/> при помощи которого мы оцениваем прошлое и <br/>текущее финансовое положение и результаты <br/> деятельности организации.</p>
+                                            </div>  
+
+
+
+                                            <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/rupee-4395499_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1  className="background-title">Оптимизации, как правило</h1>
+                                                    <p className="background-text">подлежат ключевые бизнес-процессы, так как оптимизация именно <br/>этих процессов дает наибольший эффект. Нашей задачей в этом деле является работа над<br/>усовершенствованием действий, осуществляемых в определенной последовательности. <br/>
+                                                    1) Увеличим контроль в отношении некоторых аспектов деятельности. <br/>
+                                                    2) Оптимизируем временные и трудовые затраты. <br/>
+                                                    3) Построим системы отчетных балансов. <br/>
+                                                    4) Рассчитаем аналитические коэффициенты. <br/>
+                                                    5) Вертикальный и горизонтальный анализ отчетности. <br/>
+                                                    6) Анализ DCF.</p>
+                                                </div>  
+
+
+
+   
+                                         
+                                        </div>
+
+
+                                    //     <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
+                                    //         <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Пресс-центр </span></div></div>
+                                    //         <hr/>
+                                    //         <div>
+                                    //             <div><h2 className="client-title">Пресс-центр <br/>Atlant Finance</h2></div>
+                                    //             <div className="cl-mod-par">Чем мы можем быть вам полезны?</div>                  
+                                    //             <div className="best-broker lolita">
+                                    //                 <div className="best-broker-elem">
+                                    //                     <img src={require('../../img/book.png')} alt=""/>
+                                    //                     <span>Комментарии и прогнозы</span>
+                                    //                 </div>
+                                    //                 <div className="best-broker-elem">
+                                    //                     <img src={require('../../img/birdhouse.png')} alt=""/>
+                                    //                     <span>Аналитика и исследования</span>       
+                                    //                 </div>
+                                                
+                                                
+                                    //                 <div className="best-broker-elem">
+                                    //                     <img src={require('../../img/planet.png')} alt=""/>
+                                    //                     <span>Информация о компании</span>
+                                    //                 </div>
+                                    //                 <div className="best-broker-elem">
+                                    //                     <img src={require('../../img/atm.png')} alt=""/>
+                                    //                     <span>Мнение об отрасли</span>
+                                    //                 </div>
+                                    //             </div>
+                                    //             <hr/>
+                                    //             <div><h2 className="client-title">Есть вопросы?</h2></div>
+                                    //             <Forms/>
+                                    //             <hr/>
+                                    //         <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Пресс-центр </span></div></div>
+                                    //         </div>
+                                    //         <Footer/>
+                                    // </div>
                                     }
                                     </div>
                                 <CSSTransition in={this.state.which===1 && !showContent } timeout={2900} classNames="alert">
@@ -159,245 +182,231 @@ export class Corporative extends Component {
                         </div>
 
             
-                        
                         <div className="bottom-layer" >
                                 {(!showContent && this.state.which===2) &&
                                     <CSSTransition in={this.state.which===2 && !showContent}  timeout={2900} classNames="animtext">
-                                        <h1 className="text">Управление корпоративным капиталом</h1>
+                                        <h1 className="text">Наши текущие портфели</h1>
                                     </CSSTransition>
                                 }
                                 {(this.state.which===2 && !showContent )&&
-                                <> <div className="gb" onClick={this.goBack}>
-                                <h1>
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </h1></div>
+                                <>
+                                 <div className="gb" onClick={this.goBack}>
+                                 <h1>
+                                     <i class="fas fa-arrow-circle-left"></i>
+                                 </h1></div>
                                     <div className="numbers">
                                         <div onClick={()=>{this.goToPage(0)}} >01</div>
                                         <div style={{color:" #763251",opacity:"1"}} >02</div>
                                         <div onClick={()=>{this.goToPage(2)}}>03</div>
                                         <div onClick={()=>{this.goToPage(3)}}>04</div>
-                                        <div onClick={()=>{this.goToPage(4)}}>05</div>
-                                        <div onClick={()=>{this.goToPage(5)}}>06</div>
-
+                                        {/* <div onClick={()=>{this.goToPage(4)}}>05</div> */}
                                     </div ></>
                                 }   <div style={showContent===2 ? {position:'absolute',width:'100%',top:"100vh",zIndex:10000}:null}>
                                         <CSSTransition in={this.state.which===2}  timeout={2900} classNames="animbutton">
-                                            <button onClick={()=>{this.showContent(2)}} className="abt-button" style={showContent===2 ? {width:'100%',backgroundColor:"#763251",marginTop:0}:{backgroundColor:"#763251"}}>{showContent===2 ? ('Закрыть'):('Читать')}</button>
+                                            <button onClick={()=>{window.open('/portfels')}} className="abt-button" style={{backgroundColor:"#763251"}}>{showContent===2 ? ('Закрыть'):('Читать')}</button>
                                         </CSSTransition>
                                         {showContent===2 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Управление корпоративным капиталом. </span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Управление корпоративным капиталом.</h2></div>
-                                                <div className="cl-mod-par">На протяжение всего времени существования, всегда в экономике мы наблюдали конкурентную борьбу. И на
-данный момент один из решающих факторов, позволяющий многим компаниям оказаться победителем в
-этой борьбе, финансовое положение компании</div>                  
-                                                <div className="best-broker lolita">
-                                                    <div className="best-broker-elem2">
-                                                        <img src="https://open-broker.ru/static/icons/20years.svg" alt=""/>
-                                                        <div className="cl-mod-par">Управление активами, валютные операции, операции с ценными бумагами мы предложим комплексное
-решение для этих и многих других задач. Для каждого корпоративного клиента мы предлагаем
-индивидуальный подход и сервис. Мы поможем подобрать наиболее оптимальное решение с учетом
-юридических, налоговых и других особенностей клиента и его бизнеса.</div>
+                                                <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white', overflowX:'hidden',overflowY:'scroll'}} className="show-background-wrap">
+
+                                                <div style={{textAlign:'center',backgroundImage:"url("+require('../../img/drawing-pad-1209779_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1 className="background-title">Мы сосредоточены на </h1>
+                                                    <p  className="background-text">Понимании того, как работает вся <br/> мировая экономика, мы следим за тем <br/> куда перетекает капитал. Мы контролируем <br/> все информационные потоки. <br/>  Мы оперируем  большими объемами свободной ликвидности. <br/> Мы мигрируем по рынкам в поисках наилучшей доходности. </p>
+                                                    {/* <button className="background-button">Посмотреть</button>  */}
+                                                </div>
+
+                                                <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/office-3126597_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1  className="background-title">Вследствие этого <br/> премия за риск</h1>
+                                                    <p className="background-text">Ликвидность и дюрацию искусственно <br/> занижается, а бум финансового <br/> инжиниринга, то есть, предложение  <br/> широкому кругу инвесторов продуктов <br/> с закамуфлированным высоким левериджем, лишь <br/> приносит наивысшие результаты.</p>
+                                                </div>  
+
+
+                                                <div style={{textAlign:'left'}}  className="background-elem-video">
+                                                    <div className="video-background">
+                                                        <video autoPlay loop muted src={require('../../img/Whiteboard - 2303.mp4')}></video>
                                                     </div>
-                                                    <div className="best-broker-elem2">
-                                                        <img src="https://open-broker.ru/static/icons/rating-aaa.svg" alt=""/>
-                                                        <div className="cl-mod-par">У множества предприятий образуется свободный денежный кэш, который они нерационально используют, в
-аналогии пользуются банковскими вкладами, а то и дело просто накапливают на балансе. При этом всегда
-есть множество оптимальных решений, и наша команда может их предложить!</div>       
-                                                    </div>
-                                                    <div className="best-broker-elem2">
-                                                        <img src="https://open-broker.ru/static/icons/100000clients.svg" alt=""/>
-                                                        <div className="cl-mod-par">В нашей линейке представлены разнообразные стратегии доверительного управления для разных типов
-клиентов, исходя из их риск-профиля, финансовых возможностей, сроков инвестирования и иных факторов.
-Это позволяет оптимизировать общий портфель, как по валютам, так и по регионам инвестирования. </div>    
+                                                    <div className="video-content">
+                                                        <h1  className="background-title">Наша миссия <br/> состоит в том</h1>
+                                                        <p className="background-text">Чтобы обеспечить нашим инвесторам <br/> наивысшую отдачу Поддерживать приверженность <br/> нашим принципам целостности, дисциплины <br/> и превосходства.</p>
+                                                        {/* <button  className="background-button">Посмотреть</button> */}
                                                     </div>
                                                 </div>  
-<hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>              
-                                                <hr/>
-                                            <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> О нас </span></div></div>
-                                            </div>
-                                            <Footer/>
-                                    </div>
+
+
+                                                <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/girl-2618562_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1  className="background-title">Мы используем </h1>
+                                                    <p className="background-text">Глобальный мультистратегический инвестиционный подход, <br/> оппортунистически участвуя в широком спектре <br/> торговых и инвестиционных стратегий через широкую <br/> группу диверсифицированных менеджеров. Atlant Finance  <br/> отличается от других компаний по управлению альтернативными <br/> инвестициями своей способностью последовательно <br/> приносить нашим инвесторам высококачественную прибыль.</p>
+                                                </div>      
+                                                </div>
+
+
+
+//                                         <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> О нас </span></div></div>
+//                                             <hr/>
+//                                             <div>
+//                                                 <div><h2 className="client-title">Главное о нас</h2></div>
+//                                                 <div className="cl-mod-par">ЧAtlant Finance LTD - это инвестиционно-управляющая компания, задача которой является привлечение
+// и управление инвестиционным капиталом. Компания была основана в апреле 2018 года, место
+// регистрации - Сент Винсент и Гренадины. Так как компания зарегистрирована в офшоре, это позволяет
+// решать множество задач для наших клиентов.</div>                  
+//                                                 <div className="best-broker lolita">
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/20years.svg" alt=""/>
+//                                                         <span>Atlant Finance LTD не имеет головного офиса и  опыт которых 10 лет.</span>
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/rating-aaa.svg" alt=""/>
+//                                                         <span>Очень высокая степень надежности «АА.iv»</span>       
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/100000clients.svg" alt=""/>
+//                                                         <span>Нас выбрали более 130000 инвесторов</span>
+//                                                     </div>
+//                                                 </div>
+//                                                 <div className="cl-mod-par">Мы не стремимся к быстрым заработкам, но к стабильности в
+// заработке, как для наших клиентов, так и для компании. Привлеченный инвестиционный капитал
+// инвестируется в разного рода активы, из которых большинство составляют ценные бумаги и
+// высоколиквидные инструменты денежного рынка. Также компания всегда находится в поиске
+// привлекательных проектов для инвестирования клиентского капитала и не только. В конкурентной
+// среде мы не ищем слабостей, а создаем преимущества, что помогает компании стать титаном в
+// индустрии инвестиций. Одним из таких преимуществ является защита инвестиционного капитала от
+// потерь, путем создания многоуровневой системы оценки рисков и предотвращения ошибок
+// &quot;человеческого фактора&quot;, а так же механических и когнитивных ошибок.</div>  
+// <hr/>
+//                                                 <div><h2 className="client-title">Есть вопросы?</h2></div>
+//                                                 <Forms/>              
+//                                                 <hr/>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> О нас </span></div></div>
+//                                             </div>
+//                                             <Footer/>
+//                                     </div>
                                     }
                                     </div>
                                 <CSSTransition in={this.state.which===2 && showContent===false } timeout={2900} classNames="alert">
                                     <div className="animated" style={{backgroundColor:"#763251",maxWidth:"100%"}}></div>
                                 </CSSTransition>
                         </div>
-
-                       
                         <div className="bottom-layer" >
                         {(!showContent && this.state.which===3) &&
                                     <CSSTransition in={this.state.which===3 && !showContent}  timeout={2900} classNames="animtext">
-                                        <h1 className="text">Наши текущие портфели</h1>
+                                        <h1 className="text">Методы защиты капитала</h1>
                                     </CSSTransition>
                                 }
                                 {(this.state.which===3 && !showContent )&&
-                                <> <div className="gb" onClick={this.goBack}>
-                                <h1>
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </h1></div>
+                                 <> <div className="gb" onClick={this.goBack}>
+                                 <h1>
+                                     <i class="fas fa-arrow-circle-left"></i>
+                                 </h1></div>
                                     <div className="numbers">
                                         <div onClick={()=>{this.goToPage(0)}} >01</div>
                                         <div onClick={()=>{this.goToPage(1)}}   >02</div>
                                         <div style={{color:" #534169",opacity:"1"}} onClick={()=>{this.goToPage(2)}}>03</div>
                                         <div onClick={()=>{this.goToPage(3)}}>04</div>
-                                        <div onClick={()=>{this.goToPage(4)}}>05</div>
-                                        <div onClick={()=>{this.goToPage(5)}}>06</div>
-
+                                        {/* <div onClick={()=>{this.goToPage(4)}}>05</div> */}
                                     </div ></>
                                 }   <div style={showContent===3 ? {position:'absolute',width:'100%',top:"200vh",zIndex:10000}:null}>
                                         <CSSTransition in={this.state.which===3}  timeout={2900} classNames="animbutton">
                                             <button onClick={()=>{this.showContent(3)}} className="abt-button" style={showContent===3 ? {width:'100%',backgroundColor:"#534169",marginTop:0}:{backgroundColor:"#534169"}}>{showContent===3 ? ('Закрыть'):('Читать')}</button>
                                         </CSSTransition>
                                         {showContent===3 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Наши текущие портфели </span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Инвестиционный портфель</h2></div>
-                                                <div className="cl-mod-par">это совокупность ценных бумаг и других активов, собранных
-вместе для достижения определенных целей. Составляющими нашего инвестиционного
-портфеля выступают различные активы, Акции, ETF, Облигации, Валюты, Опционы. Нашей
-основной задачей является создать качественный и надежный портфель.
-                                                </div>
-
-                                                <div><h2 className="client-title">Главная причина необходимости создания своего инвестиционного портфеля — диверсификация.</h2></div>
-                                                <div className="cl-mod-par">Принцип инвестиционного портфеля прост: не ставить все деньги на кон, защитить себя от потерь
-и «не класть все яйца в одну корзину». Для этого надо вкладывать в различные, взаимо-обратные
-инструменты, чтоб минимизировать риск и сохранить доходность.
-                                                </div>
 
 
-                                                <div className="ourClient">
-                            <div className="modal-zb">
-                                <div className="modal-left" onClick={()=>{this.setState({activeclient:"defense"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="defense" ? {backgroundColor:"#F3F5F6",color:"#73808D",width:"36.5vw"}:{width:"36.5vw"}}>Консервативный</div>
-                                <div className="modal-center" onClick={()=>{this.setState({activeclient:"kupon"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kupon" ? {background:"#F3F5F6",color:"#73808D",width:"27.5vw"}:{width:"27.5vw"}}>Умеренный</div>
-                                <div className="modal-right" onClick={()=>{this.setState({activeclient:"dohod"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="dohod" ? {background:"#F3F5F6",color:"#73808D",width:"29.5vw"}:{width:"29.5vw"}}>Агрессивный</div>
-                            </div>
-                        <div className="cl-mod-title">{this.state.activeclient==="defense" ? "Консервативный (защитный)" : (this.state.activeclient==="kupon" ? "Умеренный (стабильность)":"Агрессивный (доходный)")}</div>
-                        
-                        <div className="cl-mod-par">{this.state.activeclient==="defense" ? "инвестиционный портфель состоит из государственных ценных бумаг,акций «голубых фишек», золота и обеспечивает высокую защищенность составляющих и портфеля в целом, а доходность инвестиционного портфеля сохраняется на необходимом инвестору уровне." : (
-                            this.state.activeclient==="kupon" ? "Оптимизация по доходности и степени риска — характерная черта умеренного инвестиционного портфеля. В таком портфеле находятся как высокодоходные бумаги с высокой степенью риска, так и низкодоходные надежные бумаги.": 
-                            "Агрессивный инвестиционный портфель укомплектован высокодоходными ценными бумагами, включая их дериваты. Эти ценные бумаги имеют достаточно высокую степень риска.")}</div>
-                         <div >
-                                {this.state.activeclient==="defense" ? (
-                                           <div className="modal-element">
-                                                <div style={{backgroundImage:"url("+require('../../img/kevin-bhagat-zNRITe8NPqY-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                                    <span className="modal-el-title">Консервативный (защитный)</span> 
-                                                    <div className="hovered-card card1">
-                                                        <span>
-                                                            <p className="hovered-title">Срок инвестиций</p>
-                                                            <p className="hovered-text">от 1 года</p>
-                                                            <p className="hovered-title">Доходность</p>
-                                                            <p className="hovered-text">36% в иностранной валюте</p>
-                                                            <p className="hovered-title">Защита капитала</p>
-                                                            <p className="hovered-text">100%</p>
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                            <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white', overflowX:'hidden',overflowY:'scroll'}} className="show-background-wrap">
 
-                                                <div /*style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}} */ style={{opacity:0}} className="modal-elem-list">
-                                                {/* <span className="modal-el-title">Интернет трейдинг на международном рынке</span>
-                                                <div className="hovered-card card2">
-                                                        <span>
-                                                            <p className="hovered-title">Золото в тенге</p>
-                                                            <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
-                                                        </span>
-                                                        <button className="hovered-button">Узнать больше</button>
-                                                    </div> */}
-                                                   
-                                                </div>
-
-                                                <div /*style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}*/ style={{opacity:0}}  className="modal-elem-list">
-                                                {/* <span className="modal-el-title">Снижение перед взлетом</span>
-                                                <div className="hovered-card card3">
-                                                        <span>
-                                                            <p className="hovered-title">Ваш финансовый аналитик</p>
-                                                            <p className="hovered-text">Этот продукт для вас, если вы хотите торговать самостоятельно, но при этом вам интересно получать актуальные инвестиционные идеи наших аналитиков </p>
-                                                        </span>
-                                                        <button className="hovered-button">Узнать больше</button>
-                                                    </div> */}
-                                                </div>
+                                            <div style={{padding:'16vh 80px',textAlign:'center',backgroundImage:"url("+require('../../img/background-1747784_1280.jpg')+")"}}  className="background-elem">
+                                                <h1 className="background-title">Защита капитала</h1>
+                                                <p  className="background-text">Для того чтобы сохранить свой капитал применяются <br/> различные методы и стратегии, которые 
+предусматривают <br/> применение специальных видов активов. Например, <br/> как диверсификация риска
+путем создания портфеля, состоящего <br/> из различного рода ценных бумаг, применения методов
+хеджирования <br/> на основе производных инструментов, <br/> реальных опционов и т.д. К безопасным активам, в первую очередь, <br/> относят следующие группы:</p>
                                             </div>
-                                ):(this.state.activeclient==="kupon" ? (
 
-                                                <div  className="best-broker">
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/rocket.svg" alt=""/>
-                                                        <span>Быстрый <br/> старт</span>
-                                                        <div className="cl-mod-par">Открытие счёта онлайн и доступ к торгам уже сегодня</div>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/input-output.svg" alt=""/>
-                                                        <span>Оперативный ввод-вывод денег</span>
-                                                        <div className="cl-mod-par">Простота и оперативность зачислений, переводов и выводов денежных средств</div>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/wallet.svg" alt=""/>
-                                                        <span>Отсутствие скрытых комиссий</span>
-                                                        <div className="cl-mod-par">Комиссия брокера взимается только при совершении сделок. Нет сделок — нет комиссии брокера</div>
-                                                    </div>
-                                                </div>                    
-                                ):(
+                                            <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/desktop-3335728_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Драгоценные металлы</h1>
+                                                <p className="background-text">Традиционно золото во всей истории человечества <br/> считалось и считается до сих пор
+единственным <br/> эквивалентом стоимости, который может <br/> спасти в самые «лихие времена».</p>
+                                                <button onClick={()=>{window.open("/corporative/defending/expensive-metals")}}  className="background-button">Посмотреть</button>
+                                            </div>  
 
-                                        //   <div  className="modal-element">
 
-                                        //     <div style={{backgroundImage:"url("+require('../../img/alvaro-reyes-4eTnTQle0Ks-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                        //         <span className="modal-el-title">Структурные продукты</span> 
-                                        //         <div className="hovered-card card1">
-                                        //                 <span>
-                                        //                     <p className="hovered-title">Структурные продукты</p>
-                                        //                     <p className="hovered-text">Вы можете инвестировать средства с условием защиты вложенного капитала или получения фиксированной выплаты, а также дополнительно заработать на акциях, которыми владеете, в случае их роста</p>
-                                        //                 </span>
-                                        //                 <button className="hovered-button">Узнать больше</button>
-                                        //             </div>
-                                                   
-                                        //     </div>
+                                            <div style={{color:'white',textAlign:'left'}}  className="background-elem-video">
+                                                <div className="video-background">
+                                                    <video autoPlay loop muted src={require('../../img/Turntable - 8437.mp4')}></video>
+                                                </div>
+                                                <div className="video-content">
+                                                    <h1  className="background-title">Приобретение «защитных» акций</h1>
+                                                    <p className="background-text">Защитные акции обычно растут хуже на бычьем <br/> рынке и меньше падают на медвежьем, их <br/>
+главный признак – стабильность. <br/> Такие бумаги, как правило, неинтересны спекулянтам.</p>
+                                                    <button onClick={()=>{window.open('/corporative/defending/defensive-sales')}}  className="background-button">Посмотреть</button>
+                                                </div>
+                                            </div>  
 
-                                        //     <div style={{backgroundImage:"url("+require('../../img/denny-muller-XNTC5G1W3Xs-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                        //     <span className="modal-el-title">Индивидуальный торговый счет</span>
-                                        //     <div className="hovered-card card2">
-                                        //                 <span>
-                                        //                     <p className="hovered-title">Индивидуальный торговый счет</p>
-                                        //                     <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
-                                        //                 </span>
-                                        //                 <button className="hovered-button">Узнать больше</button>
-                                        //             </div>
-                                                   
-                                        //     </div>
 
-                                        //     <div style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                        //     <span className="modal-el-title">Доверительное управление проект</span>
-                                        //     <div className="hovered-card card3">
-                                        //                 <span>
-                                        //                     <p className="hovered-title">Доверительное управление проект</p>
-                                        //                     <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
-                                        //                 </span>
-                                        //                 <button className="hovered-button">Узнать больше</button>
-                                        //             </div>
-                                                   
-                                        //     </div>
-                                        // </div>
-                                        // // </CSSTransition>
-                                        <></>
+                                            <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/rupee-4398439_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Валюта</h1>
+                                                <p className="background-text">Валютная диверсификация активов, <br/> а также финансовая подушка безопасности в твердой валюте <br/>
+– часть стратегии риск-менеджмента. </p>
+                                                <button  onClick={()=>{window.open('/corporative/defending/currency')}}  className="background-button">Посмотреть</button>
+                                            </div>      
 
-                                ))}
-                         </div>
-                    </div>
-                                                
-                                                <hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>
-                                                <hr/>
-                                            <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Партнеры компании </span></div></div>
+                                            <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/planner-3820633_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Облигации</h1>
+                                                <p className="background-text">В приоритете – короткие бумаги (до 3 лет). <br/> Длинные облигации, как правило, более <br/>
+чувствительны к любым изменениям на рынке. <br/> Желательно привязывать дюрацию к своему <br/>
+горизонту инвестирования.</p>
+                                                <button onClick={()=>{window.open('/corporative/defending/obligation')}}  className="background-button">Посмотреть</button>
+                                            </div>     
                                             </div>
-                                            <Footer/>
-                                    </div>
+//                                         <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active">Партнеры компании</span></div></div>
+//                                             <hr/>
+//                                             <div>
+//                                                 <div><h2 className="client-title">Партнеры компании</h2></div>
+                                                        
+//                                                 <div className="best-broker lolita">
+//                                                     <div className="best-broker-elem">
+//                                                         <img src={require('../../img/bank.png')} alt=""/>
+//                                                         <span>ArmSwissBank</span>
+//                                                         <div className="cl-mod-par">банк-держатель клиентских счетов.
+// Данный банк является частным инвестиционным банком. Банк не имеет кредитного портфеля и тем
+// самым обеспечивает свою устойчивость и надежность сохранности денежных средств на своих счетах.</div>
+//                                                     </div>
+//                                                     <div className="best-broker-elem">
+//                                                         <img src={require('../../img/bank.png')} alt=""/>
+//                                                         <span>Exante</span>    
+//                                                         <div className="cl-mod-par">брокер нового поколения. Компания Exante, помогает нам оперировать
+// на международных финансовых рынках и позволяет проводить сложные торговые операции с
+// минимальными затратами. В партнерстве с компанией Exante мы создаем одно из наших конкурентных
+// преимуществ, таких как участие в IPO без lock up и за минимальные комиссии.</div>   
+//                                                     </div>
+//                                                     <div className="best-broker-elem">
+//                                                         <img src={require('../../img/bank.png')} alt=""/>
+//                                                         <span>Swissquote Bank</span>
+//                                                         <div className="cl-mod-par">
+//                                                         швейцарский банк и лидер в Швейцарии по
+// предоставлению финансовых и торговых онлайн услуг. Swissquote Bank открывает для нашей
+// компании доступ к денежному рынку и рынку капитала, что дает нам возможность добиться
+// максимальной доходности на изменении курсов иностранных валют.
+//                                                         </div>
+//                                                     </div>
+
+//                                                     <div className="best-broker-elem">
+//                                                         <img src={require('../../img/bank.png')} alt=""/>
+//                                                         <span>Utip Technologies</span>
+//                                                         <div className="cl-mod-par">
+//                                                         наш партнер, чье программное обеспечение помогает нашим
+// клиентам перейти на новый уровень трейдинга и инвестирования.
+//                                                         </div>
+//                                                     </div>
+//                                                 </div>
+//                                                 <hr/>
+//                                                 <div><h2 className="client-title">Есть вопросы?</h2></div>
+//                                                 <Forms/>
+//                                                 <hr/>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Партнеры компании </span></div></div>
+//                                             </div>
+//                                             <Footer/>
+//                                     </div>
                                     }
                                     </div>
                                 <CSSTransition in={this.state.which===3 && showContent===false } timeout={2900} classNames="alert">
@@ -405,12 +414,11 @@ export class Corporative extends Component {
                                 </CSSTransition>
                         </div>
                         
-                    
-
+                       
                         <div className="bottom-layer" >
                                 {(!showContent && this.state.which===4) &&
                                     <CSSTransition in={this.state.which===4 && !showContent}  timeout={2900} classNames="animtext">
-                                        <h1 className="text">Методы защиты капитала</h1>
+                                        <h1 className="text">Брокерское обслуживание</h1>
                                     </CSSTransition>
                                 }
                                 {(this.state.which===4 && !showContent )&&
@@ -423,74 +431,101 @@ export class Corporative extends Component {
                                         <div onClick={()=>{this.goToPage(1)}}>02</div>
                                         <div onClick={()=>{this.goToPage(2)}}>03</div>
                                         <div style={{color:" #394674",opacity:"1"}}>04</div>
-                                        <div onClick={()=>{this.goToPage(4)}}>05</div>
-                                        <div onClick={()=>{this.goToPage(5)}}>06</div>
-
+                                        {/* <div onClick={()=>{this.goToPage(4)}}>05</div> */}
                                     </div ></>
                                 }   <div style={showContent===4 ? {position:'absolute',width:'100%',top:"300vh",zIndex:10000}:null}>
                                         <CSSTransition in={this.state.which===4}  timeout={2900} classNames="animbutton">
                                             <button onClick={()=>{this.showContent(4)}} className="abt-button" style={showContent===4 ? {width:'100%',backgroundColor:"#394674",marginTop:0}:{backgroundColor:"#394674"}}>{showContent===4 ? ('Закрыть'):('Читать')}</button>
                                         </CSSTransition>
                                         {showContent===4 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Методы защиты капитала </span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Методы защиты капитала</h2></div>
-                                                <div className="cl-mod-par">Для того чтобы сохранить свой капитал применяются различные методы и стратегии, которые
-предусматривают применение специальных видов активов. Например, как диверсификация риска
-путем создания портфеля, состоящего из различного рода ценных бумаг, применения методов
-хеджирования на основе производных инструментов, реальных опционов и т.п.
-список успеха.</div>                  
-                                              
-                                                <hr/>
-                                                    <div><h2 className="client-title">К безопасным активам, <br/> в первую очередь, <br/> относят следующие группы</h2></div>
-                                                    
-                                                    <div className="modal-element">
-                                                <div style={{backgroundImage:"url("+require('../../img/kevin-bhagat-zNRITe8NPqY-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                                    <span className="modal-el-title">Драгоценные металлы</span> 
-                                                    <div className="hovered-card card1">
-                                                        <span>
-                                                            <p className="hovered-title">Способы</p>
-                                                            <p className="hovered-text">1)приобретение фьючерсов</p>
-                                                            <p className="hovered-text">2)приобретение акций золотодобывающих компаний</p>
-                                                        </span>
-                                                    </div>
-                                                </div>
 
-                                                <div style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                                <span className="modal-el-title">Приобретение «защитных» акций и облигаций.</span>
-                                                <div className="hovered-card card2">
-                                                        <span>
-                                                            <p className="hovered-title">К «защитным акциям» относят обыкновенные привилегированные акции и ряд других, которые
-имеют следующие общие черты:</p>
-                                                            <p className="hovered-text">1. высокая дивидендная доходность (более 4–5 %);</p>
-                                                            <p className="hovered-text">2.высокий уровень ликвидности</p>
+                                            <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white', overflowX:'hidden',overflowY:'scroll'}} className="show-background-wrap">
 
-                                                        </span>
-                                                        </div> 
-                                                   
-                                                </div>
-
-                                                <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}     className="modal-elem-list">
-                                                 <span className="modal-el-title">Валюта и недвижимость</span>
-                                                <div className="hovered-card card3">
-                                                        <span>
-                                                            <p className="hovered-title">Покупка валюты</p>
-                                                            <p className="hovered-text">в качестве защитного инструмента способна застраховать часть инвестиций, для
-чего правда потребуется более детальный анализ валютного рынка. </p>
-                                                        </span>
-                                                    </div> 
-                                                </div>
+                                            <div style={{padding:'16vh 80px',textAlign:'center',backgroundImage:"url("+require('../../img/magazine-3680550_1920.jpg')+")"}}  className="background-elem">
+                                                <h1 className="background-title">Брокерское обслуживание </h1>
+                                                <p  className="background-text">Сущность брокерских операций состоит <br/> в установлении через посредника-брокера контакта <br/>
+между продавцом и покупателем. Независимо <br/> от того, какой конкретной деятельностью брокер <br/>
+занимается или кого представляет, <br/> он всегда выступает как посредник в узком юридическом <br/>
+смысле, совершая только фактические действия.</p>
+                                                {/* <button className="background-button">Посмотреть</button> */}
                                             </div>
-                                                        <hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>
-                                                <hr/>
-                                            <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> О нас </span></div></div>
-                                            </div>
-                                            <Footer/>
-                                    </div>
+
+                                            <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/robot-2937861_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Клиенты могут <br/> воспользоваться следующими <br/> преимуществами</h1>
+                                                <p className="background-text"> Клиенты нашей компании могут торговать <br/> акциями, облигациями, валютой, инвестиционными <br/>
+паями ETP, биржевыми фондами ETF, <br/> различными биржевыми индексными нотами ETN, <br/>
+товарами, производными финансовыми <br/> инструментами, в том числе и внебиржевыми <br/>
+деривативами.</p>
+                                                {/* <button  className="background-button">Посмотреть</button> */}
+                                            </div>  
+
+
+                                            <div style={{textAlign:'right'}}  className="background-elem-video">
+                                                <div className="video-background">
+                                                    <video autoPlay loop muted src={require('../../img/Waterfall - 24517.mp4')}></video>
+                                                </div>
+                                                <div className="video-content">
+                                                    <h1  className="background-title">Бесплатное открытие и обслуживание счета</h1>
+                                                    <button onClick={()=>{window.open("http://my.atlantfinance.com/registration?language=en")}}  className="background-button">Посмотреть</button>
+                                                </div>
+                                            </div>  
+
+
+                                            <div style={{textAlign:'center',backgroundImage:"url("+require('../../img/desktop-3820634_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Брокерские услуги</h1>
+                                                <button onClick={()=>{window.open("/corporative/defending/broker-uslugi")}}  className="background-button">Посмотреть</button>
+                                            </div>     
+
+                                               <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/composition-3326183_1920.jpg')+")"}}  className="background-elem">
+                                                <h1  className="background-title">Участие в IPO, SPO, DPO</h1>
+                                                <button onClick={()=>{window.open("/corporative/defending/ipospodpo")}}  className="background-button">Посмотреть</button>
+                                            </div>     
+</div>
+
+
+
+//                                         <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Что мы делаем </span></div></div>
+//                                             <hr/>
+//                                             <div>
+//                                                 <div><h2 className="client-title">Что мы делаем</h2></div>
+//                                                 <div className="cl-mod-par">Atlant Finance сосредоточена на понимании того, как работает мир. Благодаря глубокому пониманию
+// мировой экономики и финансовых рынков и воплощению этого понимания в больших портфелях и
+// стратегических партнерствах с институциональными клиентами, мы создали отчетливый послужной
+// список успеха.</div>                  
+//                                                 <div className="best-broker lolita">
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/20years.svg" alt=""/>
+//                                                         <span>Наша миссия состоит в том, чтобы обеспечить нашим инвесторам наивысшую отдачу</span>
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/rating-aaa.svg" alt=""/>
+//                                                         <span>Поддерживать приверженность нашим принципам целостности, дисциплины и
+// превосходства.</span>       
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/100000clients.svg" alt=""/>
+//                                                         <span>Мы предоставляем нашим торговым командам возможность самостоятельно сосредоточиться на
+// конкретных возможностях и стратегиях</span>
+//                                                     </div>
+//                                                 </div>          
+//                                                 <hr/>
+//                                                     <div><h2 className="client-title">Инвестиционный подход</h2></div>
+//                                                     <div className="cl-mod-par">
+//                                                             Мы используем глобальный мультистратегический инвестиционный подход,
+//                                                             оппортунистически участвуя в широком спектре торговых и инвестиционных стратегий через широкую
+//                                                             группу диверсифицированных менеджеров. Atlant Finance отличается от других компаний по
+//                                                             управлению альтернативными инвестициями своей способностью последовательно приносить нашим
+//                                                             инвесторам высококачественную прибыль.
+//                                                         </div>
+//                                                         <hr/>
+//                                                 <div><h2 className="client-title">Есть вопросы?</h2></div>
+//                                                 <Forms/>
+//                                                 <hr/>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> О нас </span></div></div>
+//                                             </div>
+//                                             <Footer/>
+//                                     </div>
                                     }
                                     </div>
                                 <CSSTransition in={this.state.which===4 && showContent===false } timeout={2900} classNames="alert">
@@ -498,10 +533,10 @@ export class Corporative extends Component {
                                 </CSSTransition>
                         </div>
 
-                        <div className="bottom-layer" >
-                        {(!showContent && this.state.which===5) &&
+                        {/* <div className="bottom-layer" >
+                                {(!showContent && this.state.which===5) &&
                                     <CSSTransition in={this.state.which===5 && !showContent}  timeout={2900} classNames="animtext">
-                                        <h1 className="text">Партнеры компании</h1>
+                                        <h1 className="text">Возможности карьеры</h1>
                                     </CSSTransition>
                                 }
                                 {(this.state.which===5 && !showContent )&&
@@ -511,171 +546,112 @@ export class Corporative extends Component {
                                 </h1></div>
                                     <div className="numbers">
                                         <div onClick={()=>{this.goToPage(0)}} >01</div>
-                                        <div onClick={()=>{this.goToPage(1)}} >02</div>
-                                        <div onClick={()=>{this.goToPage(2)}}>03</div>
-                                        <div onClick={()=>{this.goToPage(3)}}>04</div>
-                                        <div style={{color:" #534169",opacity:"1"}} >05</div>
-                                        <div onClick={()=>{this.goToPage(5)}}>06</div>
-
-                                    </div ></>
-                                }   <div style={showContent===5 ? {position:'absolute',width:'100%',top:"400vh",zIndex:10000}:null}>
-                                        <CSSTransition in={this.state.which===5}  timeout={2900} classNames="animbutton">
-                                            <button onClick={()=>{this.showContent(5)}} className="abt-button" style={showContent===5 ? {width:'100%',backgroundColor:"#534169",marginTop:0}:{backgroundColor:"#534169"}}>{showContent===5 ? ('Закрыть'):('Читать')}</button>
-                                        </CSSTransition>
-                                        {showContent===5 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active">Партнеры компании</span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Партнеры компании</h2></div>
-                                                        
-                                                <div className="best-broker lolita">
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/bank.png')} alt=""/>
-                                                        <span>ArmSwissBank</span>
-                                                        <div className="cl-mod-par">банк-держатель клиентских счетов.
-Данный банк является частным инвестиционным банком. Банк не имеет кредитного портфеля и тем
-самым обеспечивает свою устойчивость и надежность сохранности денежных средств на своих счетах.</div>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/bank.png')} alt=""/>
-                                                        <span>Exante</span>    
-                                                        <div className="cl-mod-par">брокер нового поколения. Компания Exante, помогает нам оперировать
-на международных финансовых рынках и позволяет проводить сложные торговые операции с
-минимальными затратами. В партнерстве с компанией Exante мы создаем одно из наших конкурентных
-преимуществ, таких как участие в IPO без lock up и за минимальные комиссии.</div>   
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/bank.png')} alt=""/>
-                                                        <span>Swissquote Bank</span>
-                                                        <div className="cl-mod-par">
-                                                        швейцарский банк и лидер в Швейцарии по
-предоставлению финансовых и торговых онлайн услуг. Swissquote Bank открывает для нашей
-компании доступ к денежному рынку и рынку капитала, что дает нам возможность добиться
-максимальной доходности на изменении курсов иностранных валют.
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="best-broker-elem">
-                                                        <img src={require('../../img/bank.png')} alt=""/>
-                                                        <span>Utip Technologies</span>
-                                                        <div className="cl-mod-par">
-                                                        наш партнер, чье программное обеспечение помогает нашим
-клиентам перейти на новый уровень трейдинга и инвестирования.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>
-                                                <hr/>
-                                            <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Партнеры компании </span></div></div>
-                                            </div>
-                                            <Footer/>
-                                    </div>
-                                    }
-                                    </div>
-                                <CSSTransition in={this.state.which===5 && showContent===false } timeout={2900} classNames="alert">
-                                    <div className="animated" style={{backgroundColor:"#534169",maxWidth:"100%"}}></div>
-                                </CSSTransition>
-                        </div> 
-                        <div className="bottom-layer" >
-                                {(!showContent && this.state.which===6) &&
-                                    <CSSTransition in={this.state.which===6 && !showContent}  timeout={2900} classNames="animtext">
-                                        <h1 className="text">Брокерское обслуживание</h1>
-                                    </CSSTransition>
-                                }
-                                {(this.state.which===6 && !showContent )&&
-                                <> <div className="gb" onClick={this.goBack}>
-                                <h1>
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </h1></div>
-                                    <div className="numbers">
-                                        <div onClick={()=>{this.goToPage(0)}} >01</div>
                                         <div onClick={()=>{this.goToPage(1)}}>02</div>
                                         <div onClick={()=>{this.goToPage(2)}}>03</div>
                                         <div onClick={()=>{this.goToPage(3)}} >04</div>
-                                        <div onClick={()=>{this.goToPage(4)}}>05</div>
-                                        <div style={{color:" #394674",opacity:"1"}} >06</div>
-
+                                        <div style={{color:" #763251",opacity:"1"}} >05</div>
                                     </div ></>
-                                }   <div style={showContent===6 ? {position:'absolute',width:'100%',top:"500vh",zIndex:10000}:null}>
-                                        <CSSTransition in={this.state.which===6}  timeout={2900} classNames="animbutton">
-                                            <button onClick={()=>{this.showContent(6)}} className="abt-button" style={showContent===6 ? {width:'100%',backgroundColor:"#394674",marginTop:0}:{backgroundColor:"#394674"}}>{showContent===6 ? ('Закрыть'):('Читать')}</button>
+                                }   <div style={showContent===5 ? {position:'absolute',width:'100%',top:"400vh",zIndex:10000}:null}>
+                                        <CSSTransition in={this.state.which===5}  timeout={2900} classNames="animbutton">
+                                            <button onClick={()=>{this.showContent(5)}} className="abt-button" style={showContent===5 ? {width:'100%',backgroundColor:"#763251",marginTop:0}:{backgroundColor:"#763251"}}>{showContent===5 ? ('Закрыть'):('Читать')}</button>
                                         </CSSTransition>
-                                        {showContent===6 &&
-                                        <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
-                                            <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Брокерское обслуживание </span></div></div>
-                                            <hr/>
-                                            <div>
-                                                <div><h2 className="client-title">Брокерское обслуживание</h2></div>
-                                                <div className="cl-mod-par">это комплекс продуктов и услуг, которые наша компания
-предоставляет своим клиентам. Это также доступ на биржу, технологии интернет-трейдинга,
-консультационное сопровождение клиентов на каждом этапе работы с ценными бумагами,
-деривативами и инструментами валютного рынка.</div>  
+                                        {showContent===5 &&
 
-<div className="cl-mod-par">Кроме того, это специальные предложения для корпоративных клиентов и для состоятельных
-частных лиц: структурные продукты с защитой капитала, доверительное управление,
-высокоскоростной доступ и торговые роботы.</div> 
-                                              
-                                                <hr/>
-                                                    <div><h2 className="client-title">Клиенты могут воспользоваться <br/> следующими преимуществами:</h2></div>
-                                                    <div className="cl-mod-par">Клиенты нашей компании могут торговать акциями, облигациями, валютой, инвестиционными
-паями ETP, биржевыми фондами ETF, различными биржевыми индексными нотами ETN,
-товарами, производными финансовыми инструментами, в том числе и внебиржевыми
-деривативами.</div> >
-                                                    
-                                                    <div className="modal-element">
-                                                <div style={{backgroundImage:"url("+require('../../img/kevin-bhagat-zNRITe8NPqY-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                                    <span className="modal-el-title">Бесплатное открытие и обслуживание счета</span> 
-                                                    <div className="hovered-card card1">
-                                                        <span>
-                                                        <p className="hovered-title"></p>
 
-                                                            <p className="hovered-text">Свободный доступ к торговой платформе AtlantFinStation, Thinkorswim и терминалам Swissquote
-Bank.</p>
-<p className="hovered-title"></p>
-                                                            <p className="hovered-text">Самая реалистичная и надежная аналитика по Американским, Европейским и Азиатским рынкам.</p>
+                                                <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white', overflowX:'hidden',overflowY:'scroll'}} className="show-background-wrap">
 
-                                                             <p className="hovered-title"></p>
-                                                            <p className="hovered-text">Особые условия для каждого инвестора</p> 
-                                                            </span>
+                                                <div style={{padding:'16vh 80px',textAlign:'center',backgroundImage:"url("+require('../../img/whitespace-3435350_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1 className="background-title">Removing the barriers <br/> to investing.</h1>
+                                                    <p  className="background-text">Our broad range of iShares ETFs <br/> provide an efficient way to gain exposure to global <br/> markets and a full spectrum of asset classes, making <br/> investing  accessible for more and more people</p>
+                                                    <button className="background-button">Посмотреть</button>
+                                                </div>
+
+                                                <div style={{textAlign:'right',backgroundImage:"url("+require('../../img/busy-1972166_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1  className="background-title">Removing  the barriers <br/> to investing.</h1>
+                                                    <p className="background-text">Our broad range of iShares ETFs <br/> provide an efficient way to gain <br/> exposure to global markets and <br/> a full spectrum of asset classes, <br/> making investing accessible for more and more people</p>
+                                                    <button  className="background-button">Посмотреть</button>
+                                                </div>  
+
+
+                                                <div style={{textAlign:'left'}}  className="background-elem-video">
+                                                    <div className="video-background">
+                                                        <video autoPlay loop muted src={require('../../img/Meeting - 2340.mp4')}></video>
                                                     </div>
+                                                    <div className="video-content">
+                                                        <h1  className="background-title">Removing  the barriers <br/> to investing.</h1>
+                                                        <p className="background-text">Our broad range of iShares ETFs <br/> provide an efficient way to gain <br/> exposure to global markets and <br/> a full spectrum of asset classes, <br/> making investing accessible for more and more people</p>
+                                                        <button  className="background-button">Посмотреть</button>
+                                                    </div>
+                                                </div>  
+
+
+                                                <div style={{textAlign:'left',backgroundImage:"url("+require('../../img/composition-3326183_1920.jpg')+")"}}  className="background-elem">
+                                                    <h1  className="background-title">Removing  the barriers <br/> to investing.</h1>
+                                                    <p className="background-text">Our broad range of iShares ETFs <br/> provide an efficient way to gain <br/> exposure to global markets and <br/> a full spectrum of asset classes, <br/> making investing accessible for more and more people</p>
+                                                    <button  className="background-button">Посмотреть</button>
+                                                </div>      
                                                 </div>
 
-                                                <div style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                                <span className="modal-el-title">Рекомендации пр управлению риском</span>
-                                                <div className="hovered-card card2">
-                                                        <span>
-                                                           
-                                                        </span>
-                                                        </div> 
-                                                   
-                                                </div>
 
-                                                <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}     className="modal-elem-list">
-                                                 <span className="modal-el-title">Регулярные отчеты о состоянии ваших активов</span>
-                                                <div className="hovered-card card3">
-                                                        <span>
-                                                            <p className="hovered-title">Индивидуальное дистанционное обучение.</p>
-                                                        </span>
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                                        <hr/>
-                                                <div><h2 className="client-title">Есть вопросы?</h2></div>
-                                                <Forms/>
-                                                <hr/>
-                                                <div className="pathroute"><div><Link><span> Корпоративный инвестор </span></Link>/<span className="active"> Брокерское обслуживание </span></div></div>
-                                            </div>
-                                            <Footer/>
-                                    </div>
+
+
+
+//                                         <div style={{width:'100%',height:'calc(100vh - (45px + 1.5rem))',backgroundColor:'white',color:'black',overflowY:'scroll'}}>
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Вакансии </span></div></div>
+//                                             <hr/>
+//                                             <div>
+//                                                 <div><h2 className="client-title">Кто мы и что предлагаем?</h2></div>
+//                                                 <div className="cl-mod-par">Atlant Finance LTD - это инвестиционно-управляющая компания, задача которой является привлечение
+// и управление инвестиционным капиталом. Компания была основана в апреле 2018 года, место
+// регистрации - Сент Винсент и Гренадины.</div>                  
+//                                                 <div className="best-broker lolita">
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/partners-perspective-icon.svg" alt=""/>
+//                                                         <span>Перспективная
+// и развивающая отрасль</span>
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/partners-faststart-icon.svg" alt=""/>
+//                                                         <span>Крупная
+// и технологичная компания</span>       
+//                                                     </div>
+//                                                     <div className="best-broker-elem2">
+//                                                         <img src="https://open-broker.ru/static/icons/partners-search-icon.svg" alt=""/>
+//                                                         <span>Профессиональная
+// команда и соцпакет</span>
+//                                                     </div>  
+//                                                 </div>          
+//                                                 <hr/>
+//                                                     <div><h2 className="client-title">Возможности карьеры</h2></div>
+//                                                     <div className="cl-mod-par">
+//                                                     Наша компания использует предпринимательский драйв наших людей, который имеет решающее
+// значение для успеха организации. Мы стремимся привлечь, развить и сохранить лучшие таланты в
+// отрасли. Это позволяет нам постоянно совершенствовать нашу повседневную деятельность и, в
+// конечном счете, компанию в целом.
+//                                                         </div>
+//                                                         <hr/>
+//                                                 <div><h2 className="client-title">Хотите к нам?</h2></div>
+//                                                 <div className="cl-mod-par"> Вы любите трудные проблемы. Те, которые расширяют ваше понимание. Вы интеллектуально
+// любопытны? Вы любите, чтобы ваши коллеги бросали вам
+// вызов. Работать бок о бок с людьми, у которых можно многому научиться, и решить эти проблемы
+// вместе, чтобы увидеть реальные результаты. Это похоже на тебя? Если да и вы заинтересованы в том,
+// чтобы быть рассмотренным по возможным вакансиям, пишите и отправляйте нам свое резюме на:
+// info@atlantfinance.com</div>
+//                                                 <Forms/>
+//                                                 <hr/>
+                                                
+//                                             <div className="pathroute"><div><Link><span>О Компании</span></Link>/<span className="active"> Вакансии </span></div></div>
+//                                             </div>
+//                                             <Footer/>
+//                                     </div>
                                     }
                                     </div>
-                                <CSSTransition in={this.state.which===6 && showContent===false } timeout={2900} classNames="alert">
-                                    <div className="animated" style={{backgroundColor:"#394674",maxWidth:"100%"}}></div>
+                                <CSSTransition in={this.state.which===5 && showContent===false } timeout={2900} classNames="alert">
+                                    <div className="animated" style={{backgroundColor:"#763251",maxWidth:"100%"}}></div>
                                 </CSSTransition>
                         </div>
+                 */}
+                    
 
                 </ReactPageScroller>
                    

@@ -391,7 +391,7 @@ export class MainPage extends Component {
                
                         </div>
                     </div>
-                    <Link className="kabinet">
+                    <Link onClick={()=>{window.open("http://my.atlantfinance.com/")}} className="kabinet">
                         <div>
                             Личный кабинет
                         </div>
@@ -406,8 +406,8 @@ export class MainPage extends Component {
                             <div className="title"><h4>Выберите раздел</h4></div>
                             <Link to="/private"><div className="lists"><i class="fas fa-user"></i> <span> Частный инвестор</span></div></Link> 
                             <Link to="/corporative"><div className="lists"> <i class="fas fa-users fa-1x"></i><span>Корпоративный инвестор</span></div></Link>
-                            <Link> <div className="lists"><i class="fas fa-headset"></i><span> Консультации</span> </div></Link> 
-                            <Link to="/school"><div className="lists"><i class="fas fa-graduation-cap"></i><span> Школа Атланта</span></div></Link> 
+                            <Link  to="/trading/your-financial-analyst"> <div className="lists"><i class="fas fa-headset"></i><span> Консультации</span> </div></Link> 
+                            <Link to="/school"><div className="lists"><i class="fas fa-graduation-cap"></i><span> Школа Atlant</span></div></Link> 
                         </div>
                     </div>
                 </section>

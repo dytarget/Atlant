@@ -43,21 +43,21 @@ export class IndLearn extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
                             <MDBView>
                             <img
                                 className="d-block w-100"
-                                src={require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')}
+                                src={require('../../img/cafe.jpg')}
                                 alt="First slide"
                             />
                             <MDBMask overlay="black-strong"  />
                             </MDBView>
                             <MDBCarouselCaption className="texts-car analitic-car">
                                 <span className="titlecarousel">Индивидуальное обучение</span>
-                                <div className="pcarousel">Расскажите нам, что вы хотите изучить и мы составим для вас индивидуальную программу, учитывая ваши знания и опыт. Мы не перегружаем наши занятия ненужным, лишним материалом.</div>
+                                <div className="pcarousel">Мы составим для вас индивидуальную программу, учитывая ваши знания и опыт. Наша методика действует в соответствии с западной спецификой обучения.</div>
                             </MDBCarouselCaption>
                         </MDBCarouselItem>
                         </MDBCarouselInner>
@@ -70,29 +70,27 @@ export class IndLearn extends Component {
                     <hr/>
                     <div className="numbers-all-mobile-invisible">
                     <div data-aos="zoom-in" ><h2 className="client-title">Обучение по индивидуальной программе</h2></div>
-                    <div data-aos="zoom-in" style={{marginBottom:10}}  className="cl-mod-par">Запишитесь и мы составим индивидуальную программу, учитывающую ваши знания и опыт.
-                    </div>
                     <div className="best-broker lolita">
                             <div className="best-broker-elem">
-                                <img src={require('../../img/dollar.png')} alt=""/>
+                                <img src={require('../../img/book (2).png')} alt=""/>
                                 <span>Индивидуальная программа
- время!</span>
+ время</span>
                                 <div className="cl-mod-par">Мы предложим индивидуальную, оптимальную программу исходя из вашего уровня знаний и с учетом ваших пожеланий по обучению.</div>
 
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/savings.png')} alt=""/>
+                                <img src={require('../../img/tourist.png')} alt=""/>
                                 <span>Полезные знания и навыки</span> 
-                               <div className="cl-mod-par">Вы изучите базовые понятия и нюансы торговли, о которых редко упоминают на групповых занятиях.</div>
+                               <div className="cl-mod-par">Вы изучите нюансы биржевой торговли и мировых финансовых рынков, о которых редко упоминают на групповых занятиях.</div>
                             </div>
                            
                            
                             <div className="best-broker-elem">
-                                <img src={require('../../img/id-card.png')} alt=""/>
+                                <img src={require('../../img/sun-umbrella.png')} alt=""/>
                                 <span>Гибкое расписание занятий
 
 </span>
-                                <div className="cl-mod-par">Удобное время занятий позволит вам не менять привычный образ жизни. Наши преподаватели всегда пойдут вам навстречу.</div>
+                                <div className="cl-mod-par">Удобное время занятий позволит вам не менять привычный образ жизни. Наши финансовые консультанты всегда пойдут вам навстречу.</div>
 
                             </div>
                         </div>
@@ -101,63 +99,29 @@ export class IndLearn extends Component {
                    
 
                     <div data-aos="zoom-in"  className="ourClient">
-                        <h2 className="client-title">Выберите какой курс</h2>
+                        <h2 className="client-title">Выберите курс обучения</h2>
                         <div  style={{marginBottom:40}} className="cl-mod-par" >
                         </div>
                             <div className="modal-zb">
-                                <div className="modal-left" onClick={()=>{this.setState({activeclient:"defense"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="defense" ? {backgroundColor:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>1 курс</div>
-                                <div className="modal-center" onClick={()=>{this.setState({activeclient:"kupon"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kupon" ? {background:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>2 курс</div>
-                                <div className="modal-right" onClick={()=>{this.setState({activeclient:"kurs"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kurs" ? {background:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>3 курс</div>
+                                <div className="modal-left" onClick={()=>{this.setState({activeclient:"defense"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="defense" ? {backgroundColor:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>Спекулянт</div>
+                                <div className="modal-center" onClick={()=>{this.setState({activeclient:"kupon"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kupon" ? {background:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>Аналитик</div>
+                                <div className="modal-right" onClick={()=>{this.setState({activeclient:"kurs"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kurs" ? {background:"#F3F5F6",color:"#73808D",width:'22vw'}:{width:'22vw'}}>Инвестор</div>
 
                             </div>
 
 
                          <div >
-                         {this.state.activeclient==="defense" ? (
-                                    <h2 className="client-title">1 курс</h2>
-                                ):( 
-                                    this.state.activeclient==="kupon" ? (
-                                        <h2 className="client-title">2 курс</h2>
-                                    ):( 
-                                        <h2 className="client-title">3 курс</h2> 
-                                    )
-                                )}
-
-                                {this.state.activeclient==="defense" ? (
-                                     <div  style={{marginBottom:20}} className="cl-mod-par" >Вы узнаете, как устроены и как функционируют финансовые рынки и для чего oни нужны.
-                                     Увидите различия и возможности каждого из рынков в практической плоскости. Покажем
-                                     вам сложную финансовую отчетность компании в простой и доступной форме. Ключевые
-                                     навыки: 1.будете знать о всех инвестиционных альтернативах. 2.вы осознаете, что
-                                     недвижимость и предпринимательство одни из самых рисковых занятий; 3.как чужие идеи
-                                     могут принести прибыль
-                                     </div>
-                                ):( 
-                                    this.state.activeclient==="kupon" ? (
-                                        <div  style={{marginBottom:20}} className="cl-mod-par" >В этом курсе мы углубимся в детали анализа финансовой отчетности компании, в которой
-будем изучать ключевые ньюансы, дающие понимание о текущем состоянии компании.
-Мы обязательно попробуем применить на практической торговле выход финансовых
-отчетов той или иной компании. 
-                                     </div>
-                                    ):( 
-                                        <div  style={{marginBottom:20}} className="cl-mod-par" >Мы расскажем вам про азбуку графического анализа, которая поможет вам научиться
-                                        читать график ценовой динамики. Каждое число имеет значение, которое при правильном
-                                        использовании приведет вас к положительному результату. Ключевые навыки: 1.сможете
-                                        определять тенденции; 2.сможете делать первичный анализ и прогноз возможного
-                                        развития движения цен.</div> 
-                                    )
-                                )}
-                                
-
                                 {this.state.activeclient==="defense" ? (
                                     <div className="car-anal">
-                                        <div  style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}} className="car-anal-elem">
+                                        <div  style={{backgroundImage:"url("+require('../../img/office-865091_1920.jpg')+")"}} className="car-anal-elem">
                                             <div className="afterhas"></div>
-                                            <p>Курс 1</p>
-                                            <div>Узнаете суть Центральных Банков и как она отражается на повседневной жизни. Узнаете
-почему экономическая статистика не только полезна, но и необходима. Ключевые
-навыки: 1.понимание %ставки по кредитам и депозитам и как это можно использовать;
-2.инфляция не всегда зло для кошелька, если правильно ее интерпретировать; 3.слухи и
-статистика=прибыль.</div>
+                                            <p>Курс «Спекулянт»</p>
+                                            <div>Узнаете суть центральных банков и как она отражается на повседневной жизни. Узнаете почему экономическая статистика не только полезна, но и необходима.</div>
+                                            <div>Ключевые навыки: <br/>
+1. понимание % ставки по кредитам и депозитам и как это можно использовать; <br/>
+2. инфляция не всегда зло для кошелька, если правильно ее интерпретировать; <br/>
+3. слухи и статистика = прибыль.</div>
+
                                         </div>  
                                         <div className="car-anal-elem">
                                             <ul style={{fontSize:'1rem'}}>
@@ -177,14 +141,14 @@ export class IndLearn extends Component {
                                 ):(this.state.activeclient==="kupon" ?
                                 (
                                     <div className="car-anal">
-                                    <div  style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}} className="car-anal-elem">
-                                        <div className="afterhas"></div>
-                                        <p>Курс 2</p>
-                                        <div>Также в течении курса рассмотрим рынок облигаций и его
-взаимосвязь с рынком акций и, как эта взаимосвязь может приносить прибыль. Ключевые
-навыки: 1.принципиально расширить спектр инструментов для портфельного
-инвестирования; 2.умение видеть тонкую взаимосвязь в несвязанных вещах; 3.умение
-достигать стабильной доходности более 5%-7% годовых.</div>
+                                    <div style={{backgroundImage:"url("+require('../../img/black-1513894_1920.jpg')+")"}} className="car-anal-elem">
+                                        <div className="afterhas" ></div>
+                                        <p>Курс «Аналитик»</p>
+                                        <div>В течении курса рассмотрим рынок облигаций и его взаимосвязь с рынком акций и, как эта взаимосвязь может приносить прибыль. </div>
+                                        <div>Ключевые навыки: <br/>
+1. принципиально расширить спектр инструментов для портфельного инвестирования; <br/>
+2. умение видеть тонкую взаимосвязь в несвязанных вещах; <br/>
+3. умение достигать стабильной доходности более 15 % годовых.</div>
                                     </div>  
                                     <div className="car-anal-elem">
                                         <ul style={{fontSize:'1rem'}}>
@@ -203,13 +167,11 @@ export class IndLearn extends Component {
                                 </div>
                                 ):(
                                     <div className="car-anal">
-                                        <div style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}} className="car-anal-elem">
+                                        <div style={{backgroundImage:"url("+require('../../img/notepad-691250_1920.jpg')+")"}} className="car-anal-elem">
                                             <div className="afterha"></div>
-                                            <p>Курс 3</p>
-                                            <div>В этом курсе мы углубимся в детали анализа финансовой отчетности компании, в которой
-будем изучать ключевые ньюансы, дающие понимание о текущем состоянии компании.
-Мы обязательно попробуем применить на практической торговле выход финансовых
-отчетов той или иной компании. 
+                                            <p>Курс «Инвестор»</p>
+                                            <div>В этом курсе мы углубимся в детали анализа финансовой отчетности компании, в которой будем изучать ключевые нюансы, дающие понимание о текущем состоянии компании. 
+Мы обязательно попробуем применить на практической торговле выход финансовых отчетов той или иной компании.
                               </div>
                                         </div>   
                                         <div className="car-anal-elem">
@@ -232,31 +194,33 @@ export class IndLearn extends Component {
                                
                          </div>
                     </div> 
+                    <hr/>
                     <div>
                         <div><h2 className="client-title">Форма обучения</h2></div>
                         <div className="best-broker lolita">
                             <div className="best-broker-elem">
-                                <img src={require('../../img/book.png')} alt=""/>
+                                <img src={require('../../img/pyramids.png')} alt=""/>
                                 <span>Очное обучение</span>
                                 <div className="cl-mod-par">Очное обучение – это классика. Общайтесь лично с опытным трейдером, перенимайте накопленные знания и опыт вживую.</div>
 
                             </div>
                             <div className="best-broker-elem">
-                                <img src={require('../../img/birdhouse.png')} alt=""/>
-                                <span>У вас в офисе</span>       
-                                <div className="cl-mod-par">Мы ценим ваше время и поэтому готовы провести очное обучение у вас в офисе</div>
+                                <img src={require('../../img/hotel.png')} alt=""/>
+                                <span>Выездное обучение</span>       
+                                <div className="cl-mod-par">Мы ценим ваше время и поэтому готовы провести очное обучение у вас в офисе.</div>
                             </div>
                            
                            
                             <div className="best-broker-elem">
-                                <img src={require('../../img/planet.png')} alt=""/>
-                                <span>По телефону</span>
+                                <img src={require('../../img/gps.png')} alt=""/>
+                                <span>Дистанционное обучение</span>
                                 <div className="cl-mod-par">Отличный способ получить знания из любой точки страны, при этом, не сильно меняя привычный распорядок дня.</div>
 
                             </div>
                         </div>
                     </div>
-                    <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                    <hr/>
+                    <div style={{position:"relative",textAlign:"center",marginTop:10}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
                     
@@ -268,7 +232,7 @@ export class IndLearn extends Component {
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Програмное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -277,13 +241,14 @@ export class IndLearn extends Component {
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  >
+                    <hr/>
+                    <div style={{position:"relative",marginTop:10}}  >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
-                    <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Научиться </span></Link>/<span className="active"> Индивидуальное обучение</span></div></div>
+                    <hr />
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Научиться </span></Link>/<span className="active"> Индивидуальное обучение</span></div></div>
                 </section>
                 <Footer/>
             </div>

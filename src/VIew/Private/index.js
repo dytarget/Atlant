@@ -141,40 +141,14 @@ export class Private extends Component {
                     </MDBContainer>
                     </div>
                 </header>
-                <section style={{position:"relative"}} className="sectionPrivate">
-                    <div className="why-wrapper">
-                        <div className="why-elem">
-                            <div className="left-why">
-                                <i class="far fa-thumbs-up"></i>
-                            </div>
-                            <div className="right-why">
-                            Более 20 лет успешной деятельности на рынке
-                            </div>
-                        </div>
-                        <div className="why-elem">
-                                <div className="left-why">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                                <div className="right-why">
-                                    Очень высокая степень надежности «АА.iv»
-                                </div>
-                        </div>
-                        <div className="why-elem">
-                                <div className="left-why">
-                                        <i class="far fa-handshake"></i>
-                                </div>
-                                <div className="right-why">
-                                    Нас выбрали более 130000 инвесторов
-                                </div>
-                        </div>
-                    </div>
-                    <hr/>
+                <section style={{position:"relative",marginTop:'23vh'}} className="sectionPrivate">
+                    
                     <div className="ourClient">
                         <h2 className="client-title">Наши клиенты выбирают</h2>
         
                         <div className="modal-zb">
                             <div className="modal-left" onClick={()=>{this.setState({activeclient:"torgovat"})}} style={this.state.activeclient==="vlojit" ? {backgroundColor:"#F3F5F6",color:"#73808D"}:null}>Торговать и заработать</div>
-                            <div className="modal-right" onClick={()=>{this.setState({activeclient:"vlojit"})}} style={this.state.activeclient==="torgovat" ? {background:"#F3F5F6",color:"#73808D"}:null}>Вложить и приумножить</div>
+                            <div className="modal-right" onClick={()=>{this.setState({activeclient:"vlojit"})}} style={this.state.activeclient==="torgovat" ? {background:"#F3F5F6",color:"#73808D"}:null}>Инвестировать и приумножить</div>
                         </div>
                         <div className="cl-mod-title">{this.state.activeclient==="torgovat" ? "Вы решаете, как управлять своими деньгами" : "Вы решаете, как работают ваши деньги"}</div>
                         <div className="cl-mod-par">{this.state.activeclient==="torgovat" ? "Мы разработали множество решений и сервисов для комфортной работы на бирже. Они подойдут как профессиональным трейдерам и инвесторам, так и новичкам, делающим первые шаги на финансовых рынках."
@@ -195,11 +169,11 @@ export class Private extends Component {
                                                 </div>
 
                                                 <div onClick={()=>{this.props.history.push('/trading/download-platform')}}  style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                                <span className="modal-el-title">Скачать Торговую платформу</span>
+                                                <span className="modal-el-title">Программное обеспечение</span>
                                                 <div className="hovered-card card2">
                                                         <span>
-                                                            <p className="hovered-title">Интернет трейдинг на международном рынке</p>
-                                                            <p className="hovered-text">Торговая платформа (или как ее еще называют, торговый терминал) — это специальное
+                                                            <p className="hovered-title">Программное обеспечение</p>
+                                                            <p className="hovered-text">Торговая платформа — это специальное
                                                             программное обеспечение, позволяющее трейдеру иметь доступ финансовому рынку в режиме
                                                             онлайн и совершать финансовые операции на ней.</p>
                                                         </span>
@@ -250,10 +224,10 @@ export class Private extends Component {
                                             </div>
 
                                             <div onClick={()=>{this.props.history.push('/investing/trusted-control')}} style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                            <span className="modal-el-title">Доверительное управление проект</span>
+                                            <span className="modal-el-title">Доверительное управление</span>
                                             <div className="hovered-card card3">
                                                         <span>
-                                                            <p className="hovered-title">Доверительное управление проект</p>
+                                                            <p className="hovered-title">Доверительное управление</p>
                                                             <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
                                                         </span>
                                                         <button className="hovered-button">Узнать больше</button>
@@ -264,31 +238,7 @@ export class Private extends Component {
                                         </CSSTransition>
                                 )}
                          </div>
-                         <Link to={this.state.activeclient==="torgovat" ? ("/trading"):("/investing")}><div className="modal-button">{this.state.activeclient==="torgovat" ? ("Торговать"):("Вложить")}</div></Link>
-                    </div>
-                    <hr/>
-                    <div><div>
-                        <div><h2 className="client-title">Лучший брокер <br/> для начинающих инвесторов</h2></div>
-                        <div className="cl-mod-par">В конкурсе Московской биржи Invest Trial 2017 компания заняла первое место и завоевала золотой диплом в номинации «Лучший брокер для начинающих инвесторов 2017»</div>
-                        <div className="best-broker">
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/truck.png')} alt=""/>
-                                <span>Быстрый <br/> старт</span>
-                                <div className="cl-mod-par">Открытие счёта онлайн и доступ к торгам уже сегодня</div>
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/cheque.png')} alt=""/>
-                                <span>Оперативный ввод-вывод денег</span>
-                                <div className="cl-mod-par">Простота и оперативность зачислений, переводов и выводов денежных средств</div>
-                            </div>
-                            <div className="best-broker-elem">
-                                <img src={require('../../img/commerce.png')} alt=""/>
-                                <span>Отсутствие скрытых комиссий</span>
-                                <div className="cl-mod-par">Комиссия брокера взимается только при совершении сделок. Нет сделок — нет комиссии брокера</div>
-                            </div>
-                        </div>
-                        <Link to="/aboutus"><div style={{margin:"0 auto",textAlign:"center",width:"300px"}} className="btncarousel">Подробнее о компании</div></Link>
-                    </div>                      
+                         <Link to={this.state.activeclient==="torgovat" ? ("/trading"):("/investing")}><div className="modal-button">{this.state.activeclient==="torgovat" ? ("Торговать"):("Инвестировать")}</div></Link>
                     </div>
                     <hr/>
                     <div className="ourClient">
@@ -298,7 +248,7 @@ export class Private extends Component {
                             <div className="modal-right" onClick={()=>{this.setState({activeopp:"learn"})}} style={this.state.activeopp==="find" ? {background:"#F3F5F6",color:"#73808D"}:null}>Научиться и применять</div>
                         </div>
                         <div className="cl-mod-title">{this.state.activeopp==="find" ? "Вкладывайте в готовые решения" : "Вы решаете, что вам подходит"}</div>
-                        <div className="cl-mod-par">{this.state.activeopp==="find" ? "Наша команда аналитиков выпускает обзоры и инвестидеи высочайшего качества. В 2017 году мы предложили 229 идей, 82% из которых были прибыльными, а 73% продемонстрировали результат лучше бенчмарка."
+                        <div className="cl-mod-par">{this.state.activeopp==="find" ? "Наша команда аналитиков выпускает обзоры и инвестидеи высочайшего качества."
                          : "Шаг за шагом, от простого к сложному, мы научим вас инвестировать на финансовых рынках. Узнайте, как стать совладельцем крупнейших мировых компаний или зарабатывать на колебаниях курсов валют."}</div>
                          <div className="modal-cards">
                                 {this.state.activeopp==="find" ? (

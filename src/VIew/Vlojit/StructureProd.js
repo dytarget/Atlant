@@ -4,6 +4,7 @@ import {CSSTransition} from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { LineChart, PieChart ,AreaChart} from 'react-chartkick';
 import Navbar from '../NavbarFolder';
 import './index.css';
 import Consult from '../Form/Consult';
@@ -72,7 +73,7 @@ export class StructureProd extends Component {
                         showControls={false}
                         showIndicators={false}
                         className="z-depth-1"
-                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"100vh",left:0}}
+                        style={{position:"absolute",top:0,zIndex:0,maxWidth:"100%",height:"75vh",left:0}}
                     >
                         <MDBCarouselInner>
                         <MDBCarouselItem className="car-item" itemId="1">
@@ -95,7 +96,7 @@ export class StructureProd extends Component {
                     </div>
                 </header>
                 <section className="sectionVilojit">
-                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Вложить </span></Link>/<span className="active"> Структурные продукты</span></div></div>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Инвестировать </span></Link>/<span className="active"> Структурные продукты</span></div></div>
                     <hr/>
                     <div data-aos="zoom-in" ><h2 className="client-title">Структурные продукты</h2></div>
                     <div data-aos="zoom-in" style={{marginBottom:60}}  className="cl-mod-par">
@@ -138,39 +139,23 @@ export class StructureProd extends Component {
                             </div>
                         </div>
                     </div>
-                    <div  style={{marginTop:80}} className="cl-mod-par" >
-                    Идеальное решение для тех, кто ищет <br/>
-                    альтернативу банковскому вкладу
-                    </div>
-
+                    <hr style={{margin:"45px 0px"}}/>
                     <div data-aos="zoom-in"  className="ourClient">
-                        <h2 className="client-title">Индивидуальные решения</h2>
+                        <h2 className="client-title">Виды инвестиционных портфелей</h2>
                             <div className="modal-zb">
                                 <div className="modal-left" onClick={()=>{this.setState({activeclient:"defense"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="defense" ? {backgroundColor:"#F3F5F6",color:"#73808D",width:"36.5vw"}:{width:"36.5vw"}}>Консервативный</div>
                                 <div className="modal-center" onClick={()=>{this.setState({activeclient:"kupon"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="kupon" ? {background:"#F3F5F6",color:"#73808D",width:"27.5vw"}:{width:"27.5vw"}}>Умеренный</div>
                                 <div className="modal-right" onClick={()=>{this.setState({activeclient:"dohod"});window.scrollTo(0,window.scrollY+1)}} style={this.state.activeclient==="dohod" ? {background:"#F3F5F6",color:"#73808D",width:"29.5vw"}:{width:"29.5vw"}}>Агрессивный</div>
                             </div>
-                        <div className="cl-mod-title">{this.state.activeclient==="defense" ? "Консервативный (защитный)" : (this.state.activeclient==="kupon" ? "Умеренный (стабильность)":"Агрессивный (доходный)")}</div>
+                        <div className="cl-mod-title">{this.state.activeclient==="defense" ? "Консервативный (защитный)" : (this.state.activeclient==="kupon" ? "Умеренный (стабильный)":"Агрессивный (доходный)")}</div>
                         
-                        <div className="cl-mod-par">{this.state.activeclient==="defense" ? "инвестиционный портфель состоит из государственных ценных бумаг,акций «голубых фишек», золота и обеспечивает высокую защищенность составляющих и портфеля в целом, а доходность инвестиционного портфеля сохраняется на необходимом инвестору уровне." : (
+                        <div className="cl-mod-par">{this.state.activeclient==="defense" ? "Инвестиционный портфель состоит из государственных ценных бумаг,акций «голубых фишек», золота и обеспечивает высокую защищенность составляющих и портфеля в целом, а доходность инвестиционного портфеля сохраняется на необходимом инвестору уровне." : (
                             this.state.activeclient==="kupon" ? "Оптимизация по доходности и степени риска — характерная черта умеренного инвестиционного портфеля. В таком портфеле находятся как высокодоходные бумаги с высокой степенью риска, так и низкодоходные надежные бумаги.": 
                             "Агрессивный инвестиционный портфель укомплектован высокодоходными ценными бумагами, включая их дериваты. Эти ценные бумаги имеют достаточно высокую степень риска.")}</div>
                          <div >
                                 {this.state.activeclient==="defense" ? (
                                            <div className="modal-element">
-                                                <div style={{backgroundImage:"url("+require('../../img/kevin-bhagat-zNRITe8NPqY-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                                    <span className="modal-el-title">Консервативный (защитный)</span> 
-                                                    <div className="hovered-card card1">
-                                                        <span>
-                                                            <p className="hovered-title">Срок инвестиций</p>
-                                                            <p className="hovered-text">от 1 года</p>
-                                                            <p className="hovered-title">Доходность</p>
-                                                            <p className="hovered-text">36% в иностранной валюте</p>
-                                                            <p className="hovered-title">Защита капитала</p>
-                                                            <p className="hovered-text">100%</p>
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                               
 
                                                 <div /*style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}} */ style={{opacity:0}} className="modal-elem-list">
                                                 {/* <span className="modal-el-title">Интернет трейдинг на международном рынке</span>
@@ -184,6 +169,20 @@ export class StructureProd extends Component {
                                                    
                                                 </div>
 
+                                                <Link to="/investing/structural-products/conservative"><div style={{borderRadius:25,backgroundImage:"url("+require('../../img/typewriter-407695_1920.jpg')+")"}}  className="modal-elem-list"> 
+                                                    <span className="modal-el-title">Консервативный (защитный)</span> 
+                                                    <div style={{borderRadius:25}} className="hovered-card card1">
+                                                        <span>
+                                                            <p className="hovered-title">Срок инвестиций</p>
+                                                            <p className="hovered-text">от 1 года</p>
+                                                            <p className="hovered-title">Доходность</p>
+                                                            <p className="hovered-text">36% в иностранной валюте</p>
+                                                            <p className="hovered-title">Защита капитала</p>
+                                                            <p className="hovered-text">Полная гарантийное обеспечение капитала на уровне 100 процентов</p>
+                                                        </span>
+                                                    </div>
+                                                </div></Link>
+
                                                 <div /*style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}*/ style={{opacity:0}}  className="modal-elem-list">
                                                 {/* <span className="modal-el-title">Снижение перед взлетом</span>
                                                 <div className="hovered-card card3">
@@ -196,65 +195,84 @@ export class StructureProd extends Component {
                                                 </div>
                                             </div>
                                 ):(this.state.activeclient==="kupon" ? (
+                                            <div className="modal-element">   
+                                               <div /*style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}} */ style={{opacity:0}} className="modal-elem-list">
+                                               {/* <span className="modal-el-title">Интернет трейдинг на международном рынке</span>
+                                               <div className="hovered-card card2">
+                                                       <span>
+                                                           <p className="hovered-title">Золото в тенге</p>
+                                                           <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
+                                                       </span>
+                                                       <button className="hovered-button">Узнать больше</button>
+                                                   </div> */}
+                                                  
+                                               </div>
 
-                                                <div  className="best-broker">
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/rocket.svg" alt=""/>
-                                                        <span>Быстрый <br/> старт</span>
-                                                        <div className="cl-mod-par">Открытие счёта онлайн и доступ к торгам уже сегодня</div>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/input-output.svg" alt=""/>
-                                                        <span>Оперативный ввод-вывод денег</span>
-                                                        <div className="cl-mod-par">Простота и оперативность зачислений, переводов и выводов денежных средств</div>
-                                                    </div>
-                                                    <div className="best-broker-elem">
-                                                        <img src="https://open-broker.ru/static/icons/wallet.svg" alt=""/>
-                                                        <span>Отсутствие скрытых комиссий</span>
-                                                        <div className="cl-mod-par">Комиссия брокера взимается только при совершении сделок. Нет сделок — нет комиссии брокера</div>
-                                                    </div>
-                                                </div>                    
+                                               <Link to="/investing/structural-products/umerennyi"> <div style={{borderRadius:25,backgroundImage:"url("+require('../../img/money-2696234_1920.jpg')+")"}}  className="modal-elem-list"> 
+                                                   <span className="modal-el-title">Умеренный</span> 
+                                                   <div style={{borderRadius:25}} className="hovered-card card1">
+                                                       <span>
+                                                           <p className="hovered-title">Срок инвестиций</p>
+                                                           <p className="hovered-text">от 1 года</p>
+                                                           <p className="hovered-title">Доходность</p>
+                                                           <p className="hovered-text">свыше 36% в иностранной валюте</p>
+                                                           <p className="hovered-title">Защита капитала</p>
+                                                           <p className="hovered-text">Гарантийное обеспечение капитала на уровне 60 процентов</p>
+                                                       </span>
+                                                   </div>
+                                               </div></Link>
+
+                                               <div /*style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}*/ style={{opacity:0}}  className="modal-elem-list">
+                                               {/* <span className="modal-el-title">Снижение перед взлетом</span>
+                                               <div className="hovered-card card3">
+                                                       <span>
+                                                           <p className="hovered-title">Ваш финансовый аналитик</p>
+                                                           <p className="hovered-text">Этот продукт для вас, если вы хотите торговать самостоятельно, но при этом вам интересно получать актуальные инвестиционные идеи наших аналитиков </p>
+                                                       </span>
+                                                       <button className="hovered-button">Узнать больше</button>
+                                                   </div> */}
+                                               </div>
+                                           </div>      
                                 ):(
 
-                                          <div  className="modal-element">
+                                    <div className="modal-element">   
+                                    <div /*style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}} */ style={{opacity:0}} className="modal-elem-list">
+                                    {/* <span className="modal-el-title">Интернет трейдинг на международном рынке</span>
+                                    <div className="hovered-card card2">
+                                            <span>
+                                                <p className="hovered-title">Золото в тенге</p>
+                                                <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
+                                            </span>
+                                            <button className="hovered-button">Узнать больше</button>
+                                        </div> */}
+                                       
+                                    </div>
 
-                                            {/* <div style={{backgroundImage:"url("+require('../../img/alvaro-reyes-4eTnTQle0Ks-unsplash.jpg')+")"}}  className="modal-elem-list"> 
-                                                <span className="modal-el-title">Структурные продукты</span> 
-                                                <div className="hovered-card card1">
-                                                        <span>
-                                                            <p className="hovered-title">Структурные продукты</p>
-                                                            <p className="hovered-text">Вы можете инвестировать средства с условием защиты вложенного капитала или получения фиксированной выплаты, а также дополнительно заработать на акциях, которыми владеете, в случае их роста</p>
-                                                        </span>
-                                                        <button className="hovered-button">Узнать больше</button>
-                                                    </div>
-                                                   
-                                            </div>
-
-                                            <div style={{backgroundImage:"url("+require('../../img/denny-muller-XNTC5G1W3Xs-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                            <span className="modal-el-title">Индивидуальный торговый счет</span>
-                                            <div className="hovered-card card2">
-                                                        <span>
-                                                            <p className="hovered-title">Индивидуальный торговый счет</p>
-                                                            <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
-                                                        </span>
-                                                        <button className="hovered-button">Узнать больше</button>
-                                                    </div>
-                                                   
-                                            </div>
-
-                                            <div style={{backgroundImage:"url("+require('../../img/thomas-drouault-IBUcu_9vXJc-unsplash.jpg')+")"}}  className="modal-elem-list">
-                                            <span className="modal-el-title">Доверительное управление проект</span>
-                                            <div className="hovered-card card3">
-                                                        <span>
-                                                            <p className="hovered-title">Доверительное управление проект</p>
-                                                            <p className="hovered-text">Накапливайте средства, инвестируйте их на бирже и зарабатывайте, получая при этом налоговые вычеты-на взнос или на доход</p>
-                                                        </span>
-                                                        <button className="hovered-button">Узнать больше</button>
-                                                    </div>
-                                                   
-                                            </div> */}
+                                    <Link to="/investing/structural-products/aggressive"> <div style={{borderRadius:25,backgroundImage:"url("+require('../../img/chicago-690364_1920.jpg')+")"}}  className="modal-elem-list"> 
+                                        <span className="modal-el-title">Агрессивный</span> 
+                                        <div style={{borderRadius:25}} className="hovered-card card1">
+                                            <span>
+                                                <p className="hovered-title">Срок инвестиций</p>
+                                                <p className="hovered-text">от 1 года</p>
+                                                <p className="hovered-title">Доходность</p>
+                                                <p className="hovered-text">Деление полученной прибыли в равных долях</p>
+                                                <p className="hovered-title">Защита капитала</p>
+                                                <p className="hovered-text">Гарантийное обеспечение капитала на уровне 50 процентов</p>
+                                            </span>
                                         </div>
-                                        // </CSSTransition>
+                                    </div></Link>
+
+                                    <div /*style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}*/ style={{opacity:0}}  className="modal-elem-list">
+                                    {/* <span className="modal-el-title">Снижение перед взлетом</span>
+                                    <div className="hovered-card card3">
+                                            <span>
+                                                <p className="hovered-title">Ваш финансовый аналитик</p>
+                                                <p className="hovered-text">Этот продукт для вас, если вы хотите торговать самостоятельно, но при этом вам интересно получать актуальные инвестиционные идеи наших аналитиков </p>
+                                            </span>
+                                            <button className="hovered-button">Узнать больше</button>
+                                        </div> */}
+                                    </div>
+                                </div>      
                                 ))}
                          </div>
                     </div>
@@ -295,7 +313,7 @@ export class StructureProd extends Component {
                     <div> */}
                         {/* <Charts/> */}
                     {/* </div> */}
-                    <div style={{position:"relative",textAlign:"center",marginTop:50}} className="not-found" data-aos="zoom-in" >
+                    <div style={{position:"relative",textAlign:"center",marginTop:10}} className="not-found" data-aos="zoom-in" >
                         <div><h2 className="client-title">Это не то, что вы искали?</h2></div>
                         <p>Ознакомьтесь с другими решениями «Atlant Finance»</p> 
                     
@@ -307,7 +325,7 @@ export class StructureProd extends Component {
                                                 
                                 <Link to="/trading/download-platform"> 
                                     <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                    <span>Торговая платформа</span>
+                                    <span>Программное обеспечение</span>
                                 </div></Link>
 
                                 <Link to="/trading/your-financial-analyst"> 
@@ -316,13 +334,14 @@ export class StructureProd extends Component {
                                 </div></Link>
                         </div>
                     </div>
-                    <div style={{position:"relative",marginTop:50}}  data-aos="zoom-in" >
+                    <hr/>
+                    <div style={{position:"relative",marginTop:10}}  data-aos="zoom-in" >
                         <div><h2 className="client-title">Заявка на консультацию</h2></div>
                         <p style={{textAlign:"center"}}>Оставьте заявку, и мы перезвоним вам в ближайшее время</p> 
                         <Consult/>
                     </div>
-                    <hr style={{marginTop:50}}/>
-                    <div style={{marginBottom:20}} className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Структурные продукты </span></Link>/<span className="active"> Структурные продукты</span></div></div>
+                    <hr style={{marginTop:10}}/>
+                    <div className="pathroute"><div><Link to="/private"><span>Частный инвестор </span></Link>/<Link to="/investing"><span> Структурные продукты </span></Link>/<span className="active"> Структурные продукты</span></div></div>
                 </section>
                 <Footer/>
             </div>

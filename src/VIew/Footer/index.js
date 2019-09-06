@@ -19,23 +19,18 @@ export class Footer extends Component {
                             <div className="text-center text-md-right">
                             <ul className="list-unstyled list-inline">
                                 <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                                <a href="https://web.facebook.com/atlantfinance/?_rdc=1&_rdr"  className="btn-floating btn-sm rgba-white-slight mx-1">
                                     <i className="fab fa-facebook-f" />
                                 </a>
                                 </li>
                                 <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                                <a href="https://twitter.com/AtlantFinance " className="btn-floating btn-sm rgba-white-slight mx-1">
                                     <i className="fab fa-twitter" />
                                 </a>
                                 </li>
                                 <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-google-plus" />
-                                </a>
-                                </li>
-                                <li className="list-inline-item">
-                                <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                                    <i className="fab fa-linkedin-in" />
+                                <a href="https://www.instagram.com/atlant.finance/" className="btn-floating btn-sm rgba-white-slight mx-1">
+                                    <i className="fab fa-instagram" />
                                 </a>
                                 </li>
                             </ul>
@@ -62,7 +57,7 @@ export class Footer extends Component {
                             <a href="/corporative">Корпоративный инвестор</a>
                             </p>
                             <p>
-                            <a href="/corporative/3">Портфель Atlant Finance</a>
+                            <a href="/corporative/2">Портфель Atlant Finance</a>
                             </p>
                             <p>
                             <a href="/school">Школа Atlant</a>
@@ -77,7 +72,7 @@ export class Footer extends Component {
                             <a href="/aboutus/2">О нас</a>
                             </p>
                             <p>
-                            <a href="/aboutus">Пресс- центр</a>
+                            <a href="/aboutus">Возможности карьеры</a>
                             </p>
                             <p>
                             <a href="/aboutus/4">Что мы делаем</a>
@@ -90,16 +85,13 @@ export class Footer extends Component {
                         <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3 cols">
                             <h6 className="text-uppercase mb-4 font-weight-bold">Контакты</h6>
                             <p>
-                            <i className="fa fa-home mr-3" /> Нурлы Тау, Алматы 10012, KZ
+                            <i className="fa fa-home mr-3" /> Алматы, Абылай Хана 53, БЦ Abylai Khan Plaza, 6 этаж, KZ
                             </p>
                             <p>
-                            <i className="fa fa-envelope mr-3" /> atlant@gmail.com
+                            <i className="fa fa-envelope mr-3" /> info@atlantfinance.com
                             </p>
                             <p>
-                            <i className="fa fa-phone mr-3" /> + 01 234 567 88
-                            </p>
-                            <p>
-                            <i className="fa fa-print mr-3" /> + 01 234 567 89
+                            <i className="fa fa-phone mr-3" /> +7 (771) 171 75 05
                             </p>
                         </MDBCol>
                         </MDBRow>

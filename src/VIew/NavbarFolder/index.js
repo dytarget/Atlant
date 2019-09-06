@@ -50,14 +50,14 @@ export class Navbar extends Component {
                         <div className="attrs">
                             <div className="brand" ><Link to="/"><img className="log" src={require('../../img/Logo_atlant (1).png')} alt="Logo"/></Link>
 </div>
-                            <div className="zaebal-elem-out" onClick={()=>{this.showDrop("Вложить")}}><div className="zaebal-elem" style={this.state.active==="Вложить" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Вложить</div></div>
+                            <div className="zaebal-elem-out" onClick={()=>{this.showDrop("Вложить")}}><div className="zaebal-elem" style={this.state.active==="Вложить" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Инвестировать</div></div>
                             <div className="zaebal-elem-out"  onClick={()=>{this.showDrop("Торговать")}}><div className="zaebal-elem" style={this.state.active==="Торговать" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Торговать</div></div>
                             <div className="zaebal-elem-out"   onClick={()=>{this.showDrop("Научиться")}}><div className="zaebal-elem"  style={this.state.active==="Научиться" ? {fontWeight:600,borderBottom:"3px solid #3c4673"}:null} >Научиться</div></div>
                             <div className="zaebal-elem-out"><div className="zaebal-elem"><Link style={{color:'inherit'}} to="/find-idea">Найти идею</Link></div></div>
                         </div>
                             <div className="nav-right">
-                            <button className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null} class="fas fa-phone ico"></i>8 777 413 69 70</button>
-                            <button className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ||this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
+                            <button className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null} class="fas fa-phone ico"></i>+7 (771) 171 75 05</button>
+                            <button onClick={()=>{window.open("http://my.atlantfinance.com/")}} className="nav-knopka" style={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? {color:"#3c4673"}:null}><i style={this.state.showDropdown ||this.state.fixed || this.state.showNavItems || this.state.showMenu ? {borderColor:"#3c4673"}:null}  class="fas fa-user ico"></i></button>
                             <button onClick={this.showMenu}  className={this.state.showDropdown || this.state.fixed || this.state.showNavItems || this.state.showMenu ? 'menu-opened' : 'menu'}><i class={this.state.showMenu ? "fas fa-times" : "fas fa-bars"}></i>Меню</button>
                         </div>
                     </nav>
@@ -75,9 +75,9 @@ export class Navbar extends Component {
                                         </div>
                                         </Link>
 
-                                    <Link to="/investing/individual"> 
+                                    <Link to="/portfels"> 
                                     <div style={{backgroundImage:"url("+require('../../img/helloquence-5fNmWej4tAA-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                        <span>Индивидуальный торговый счет</span>
+                                        <span>Отчетность по портфелям</span>
                                     </div></Link>
 
                                     <Link to="/investing/trusted-control"> 
@@ -98,7 +98,7 @@ export class Navbar extends Component {
                                             
                                         <Link to="/trading/download-platform"> 
                                         <div style={{backgroundImage:"url("+require('../../img/m-b-m-ZzOa5G8hSPI-unsplash.jpg')+")"}}  className="left-dp-elem">
-                                            <span>Скачать Торговую платформу</span>
+                                            <span>Программное обеспечение</span>
                                         </div></Link>
 
                                         <Link to="/trading/your-financial-analyst"> 
@@ -142,23 +142,22 @@ export class Navbar extends Component {
 
                                     {this.state.active==="Вложить" &&
                                     <>
-                                        <div className="right-dp-elem"><Link>Сервисы для торговли</Link></div>
-                                        <div className="right-dp-elem"> <Link>Дистрибутивы</Link></div>
-                                        <div className="right-dp-elem"><Link>Учебный счёт</Link></div>
-                                        <div className="right-dp-elem"><Link>Офисы продаж</Link></div>
+                                        {/* <div className="right-dp-elem"><Link>Сервисы для торговли</Link></div> */}
+                                        <div className="right-dp-elem"> <Link to="/trading/download-platform">Программное обеспечение</Link></div>
+                                        <div className="right-dp-elem"><Link onClick={()=>{window.open('http://webtrader.atlantfinance.com/')}}>Демонстрационный счет</Link></div>
+                                        <div className="right-dp-elem"><Link>Филиалы</Link></div>
                                         </>
                                     }
                                     {this.state.active==="Торговать" && 
                                     <>
-                                      <div className="right-dp-elem"><Link>Скачать Торговую платформу</Link></div>
-                                      <div className="right-dp-elem"><Link to="/trading">Сервисы для торговли</Link></div>
-                                      <div className="right-dp-elem"><Link>Учебный счёт</Link></div>
-                                      <div className="right-dp-elem"><Link>Офисы продаж</Link></div>
+                                       <div className="right-dp-elem"> <Link to="/trading/download-platform">Программное обеспечение</Link></div>
+                                        <div className="right-dp-elem"><Link onClick={()=>{window.open('http://webtrader.atlantfinance.com/')}}>Демонстрационный счет</Link></div>
+                                        <div className="right-dp-elem"><Link>Филиалы</Link></div>
                                       </>
                                     }
                                      {this.state.active==="Научиться" && 
                                     <>
-                                      <div className="right-dp-elem"><Link to="/learn/individual-learn">Индивидуальное обучение статьи</Link></div>
+                                      <div className="right-dp-elem"><Link to="/learn/individual-learn">Индивидуальное обучение</Link></div>
                                       </>
                                     }
                                 </div>
@@ -169,43 +168,41 @@ export class Navbar extends Component {
                             <div  style={window.scrollY>580 ? {position:"fixed",marginTop:"40px"}:null} className="menu-dp">
                                 <div className="wrapper">
                                     <div className="menu-elem">
-                                        <p className="menu-tit"><Link to="/investing">Вложить</Link></p>
+                                        <p className="menu-tit"><Link to="/investing">Инвестировать</Link></p>
                                         <p className="menu-list"><Link to="/trading/your-financial-analyst">Ваш финансовый аналитик</Link></p>
                                         <p className="menu-list"><Link to="/investing/individual">Индивидуальный торговый счет</Link></p>
-                                        <p className="menu-list"><Link to="/trading/download-platform">Скачать Торговую платформу</Link></p>
+                                        <p className="menu-list"><Link to="/trading/download-platform">Программное обеспечение</Link></p>
                                         <p className="menu-tit"><Link to="/trading">Торговать</Link></p>
                                         <p className="menu-list"><Link to="/investing/structural-products">Структурные продукты</Link></p>
                                         <p className="menu-list"><Link to="/investing/individual">Индивидуальный торговый счет</Link></p>
-                                        <p className="menu-list"><Link to="/investing/trusted-control">Доверительное управление проект</Link></p>
+                                        <p className="menu-list"><Link to="/investing/trusted-control">Доверительное управление</Link></p>
                                         <p className="menu-tit"><Link to="/find-idea">Найти идею</Link></p>
                                     </div>
                                     <div className="menu-elem">
                                         <p className="menu-tit"><Link to="/learn">Научиться</Link></p>
-                                        <p className="menu-list"><Link to="/learn/individual-learn">Индивидуальное обучение статьи</Link></p>
+                                        <p className="menu-list"><Link to="/learn/individual-learn">Индивидуальное обучение</Link></p>
                                         <p className="menu-tit"><Link to="/aboutus">О Компании</Link></p>
-                                        <p className="menu-list"><Link to="/aboutus">Пресс- центр</Link></p>
-                                        <p className="menu-list"><Link to="/aboutus/2">О нас</Link></p>
-                                        <p className="menu-list"><Link to="/aboutus/3">Что мы делаем</Link></p>
-                                        <p className="menu-list"><Link to="/aboutus/4">Партнеры компании</Link></p>
-                                        <p className="menu-list"><Link to="/aboutus/5">Возможности карьеры</Link></p>
+                                        {/* <p className="menu-list"><Link to="/aboutus">Пресс- центр</Link></p> */}
+                                        <p className="menu-list"><Link to="/aboutus">О нас</Link></p>
+                                        <p className="menu-list"><Link to="/aboutus/2">Что мы делаем</Link></p>
+                                        <p className="menu-list"><Link to="/aboutus/3">Партнеры компании</Link></p>
+                                        <p className="menu-list"><Link to="/aboutus/4">Возможности карьеры</Link></p>
                                     </div>
                                     <div className="menu-elem">
                                         <p className="menu-tit"><Link to="/corporative">Корпоративным лицам</Link></p>
                                         <p className="menu-list"><Link to="/corporative">Оптимизация бизнес процессов</Link></p>
-                                        <p className="menu-list"><Link to="/corporative/2">Управление корпоративным капиталом</Link></p>
-                                        <p className="menu-list"><Link to="/corporative/3">Наши текущие портфели</Link></p>
-                                        <p className="menu-list"><Link to="/corporative/4">Инструменты защиты капитала</Link></p>
-                                        <p className="menu-list"><Link to="/corporative/6">Брокерское обслуживание</Link></p>
-                                        <p className="menu-list"><Link to="/corporative/5">Наши партнеры</Link></p>
+                                        <p className="menu-list"><Link to="/corporative/2">Наши текущие портфели</Link></p>
+                                        <p className="menu-list"><Link to="/corporative/3">Методы защиты капитала</Link></p>
+                                        <p className="menu-list"><Link to="/corporative/4">Брокерское обслуживание</Link></p>
                                         <p className="menu-list"><Link to="/trading/your-financial-analyst">Ваш финансовый аналитик</Link></p>
                                         <p className="menu-list"><Link to="/private/business-ethics-and-honesty">Этика и честность</Link></p>
                                     </div>
                                     <div className="menu-elem">
-                                        <p className="menu-tit"><Link>Торговая платформа описание</Link></p>
+                                        <p className="menu-tit"><Link to="/trading/download-platform">Программное обеспечение</Link></p>
                                         <p className="menu-tit"><Link to="/aboutus/3">Наши партнеры</Link></p>
                                         <p className="menu-tit"><Link to="/learn">Обучение трейдингу</Link></p>
                                         <p className="menu-tit"><Link to="/aboutus/5">Вакансии</Link></p>
-                                        <p className="menu-tit"><Link to="/investing/structural-products">Отчетность по портфелям</Link></p>
+                                        <p className="menu-tit"><Link to="/portfels">Отчетность по портфелям</Link></p>
                                     </div>
                                 </div>
                             </div>

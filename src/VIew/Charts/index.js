@@ -36,9 +36,9 @@ export class Charts extends Component {
             <>
             <div className="chart-wrapper">
                 <div className="chartname-list">
-                    <div onClick={()=>{this.setState({active:1})}} className={this.state.active===1 ? "chartnames activeone":"chartnames"}>Project 1</div>
-                    <div onClick={()=>{this.setState({active:2})}} className={this.state.active===2 ? "chartnames activeone":"chartnames"}>Project 2</div>
-                    <div onClick={()=>{this.setState({active:3})}} className={this.state.active===3 ? "chartnames activeone":"chartnames"}>Project 3</div>
+                    <div onClick={()=>{this.setState({active:1})}} className={this.state.active===1 ? "chartnames activeone":"chartnames"}>Портфель 1</div>
+                    <div onClick={()=>{this.setState({active:2})}} className={this.state.active===2 ? "chartnames activeone":"chartnames"}>Портфель 2</div>
+                    <div onClick={()=>{this.setState({active:3})}} className={this.state.active===3 ? "chartnames activeone":"chartnames"}>Портфель 3</div>
                 </div>
                 <div className="chart-part">
                     <div className="chart-details">
@@ -47,14 +47,14 @@ export class Charts extends Component {
                             <p>Доходность</p>
                         </div>
                         <div className="chart-detail-elem">
-                            <h6>Высокий</h6>
+                            <h6>Высокий</h6>    
                             <p>Риск</p>
                         </div>
                     </div>
                     <LineChart height="50%" colors={["#6b3354","#3c4673"]}  data={data[this.state.active-1]} />
                     <div className="chart-part-bot">
-                        <button className="chart-part-bot-1" >Подробнее</button>
-                        <button className="chart-part-bot-2">Оставить заявку</button>
+                        <button style={{opacity:0}} className="chart-part-bot-1" >Подробнее</button>
+                        <button style={{opacity:0}}  className="chart-part-bot-2">Оставить заявку</button>
                     </div>
                 </div>
             </div>
